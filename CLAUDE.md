@@ -8,15 +8,15 @@ Guidance for Claude Code when working in this repository.
 
 ## START HERE: Session Bootstrap
 
-**Last session: 2026-08-25.** Skeleton scaffolded and committed locally as `cfcdb98`.
-**Nothing has been pushed.** The GitHub remote is still empty.
+**Last session: 2026-08-25.** Skeleton scaffolded and **pushed**. Remote `main` is at
+`91f15f8`. The repo is public and the skeleton is now publicly visible.
 
 ### 1. Orient (run these first, in order)
 
 ```bash
-git log --oneline -3          # expect cfcdb98 as the only commit
+git log --oneline -3          # expect 91f15f8, 7d35367, cfcdb98
 git status --short            # expect clean
-git ls-remote origin          # EMPTY output means still unpushed
+git fetch -q origin && git rev-list --left-right --count origin/main...main   # expect 0 0
 python3 -m http.server 8000   # preview at http://localhost:8000
 ```
 
@@ -34,20 +34,17 @@ python3 -m http.server 8000   # preview at http://localhost:8000
 | Formspree form | **Deliberately unwired**, `REPLACE_WITH_ORTHO_FLOW_FORM_ID` |
 | Product / device line | **Unknown.** Do not assume the NICE1 |
 | Domain / DNS / Pages | Not started. No `CNAME` on purpose |
-| Pushed to GitHub | **No** |
+| Pushed to GitHub | Yes, `91f15f8` on public `main` |
 
 ### 3. Ask Sebby before doing anything else
 
 These are open decisions, not tasks. Do not resolve them by guessing.
 
-1. **Push the skeleton to the public remote?** The repo
-   `SebbyServices/OrthoFlowRecovery` is public. Pushing makes a client's unstarted
-   project publicly visible before anything is signed.
-2. **Is this paid from day one?** Elite Care was a free demo that was meant to convert.
+1. **Is this paid from day one?** Elite Care was a free demo that was meant to convert.
    Sebby has not said which model applies here.
-3. **Which recovery device line does Ortho Flow distribute?** This shapes the entire
+2. **Which recovery device line does Ortho Flow distribute?** This shapes the entire
    equipment section. The NICE1 belongs to Elite Care.
-4. **Is Elite Care's owner contact now wrong?** Elite Care's `CLAUDE.md` lists John
+3. **Is Elite Care's owner contact now wrong?** Elite Care's `CLAUDE.md` lists John
    Pierce as owner contact and its `HANDOFF.md` is addressed to him. If John runs Ortho
    Flow, Elite Care's contact may need to become Chris Pierce. Flag it, do not edit
    the other repo.
@@ -295,3 +292,5 @@ expected right now, not an error.
 - Aug 25, 2026: added the "START HERE: Session Bootstrap" section so a cold session can
   orient without re-briefing. **Keep it current.** When the state in that table changes,
   update the table in the same commit as the change itself.
+- Aug 25, 2026: pushed to the public remote at Sebby's go-ahead. Bootstrap state table,
+  orientation commands, and the open-decisions list updated to match.
