@@ -6,6 +6,80 @@ Guidance for Claude Code when working in this repository.
 
 ---
 
+## START HERE: Session Bootstrap
+
+**Last session: 2026-08-25.** Skeleton scaffolded and committed locally as `cfcdb98`.
+**Nothing has been pushed.** The GitHub remote is still empty.
+
+### 1. Orient (run these first, in order)
+
+```bash
+git log --oneline -3          # expect cfcdb98 as the only commit
+git status --short            # expect clean
+git ls-remote origin          # EMPTY output means still unpushed
+python3 -m http.server 8000   # preview at http://localhost:8000
+```
+
+### 2. Where things actually stand
+
+| Area | State |
+|---|---|
+| Page structure (3 pages) | Built, well-formed, verified |
+| `styles.css` / `main.js` | Ported and working |
+| Nav / mobile menu / footer | Built, byte-identical across all three pages |
+| Client copy | **None.** Every headline and paragraph is `[placeholder]` |
+| Logo / favicon | Placeholder wordmark only |
+| Brand color | Placeholder teal `#0F766E`, flagged TODO |
+| Contact phone / email / hours | **Deliberately blank** |
+| Formspree form | **Deliberately unwired**, `REPLACE_WITH_ORTHO_FLOW_FORM_ID` |
+| Product / device line | **Unknown.** Do not assume the NICE1 |
+| Domain / DNS / Pages | Not started. No `CNAME` on purpose |
+| Pushed to GitHub | **No** |
+
+### 3. Ask Sebby before doing anything else
+
+These are open decisions, not tasks. Do not resolve them by guessing.
+
+1. **Push the skeleton to the public remote?** The repo
+   `SebbyServices/OrthoFlowRecovery` is public. Pushing makes a client's unstarted
+   project publicly visible before anything is signed.
+2. **Is this paid from day one?** Elite Care was a free demo that was meant to convert.
+   Sebby has not said which model applies here.
+3. **Which recovery device line does Ortho Flow distribute?** This shapes the entire
+   equipment section. The NICE1 belongs to Elite Care.
+4. **Is Elite Care's owner contact now wrong?** Elite Care's `CLAUDE.md` lists John
+   Pierce as owner contact and its `HANDOFF.md` is addressed to him. If John runs Ortho
+   Flow, Elite Care's contact may need to become Chris Pierce. Flag it, do not edit
+   the other repo.
+
+### 4. Work that is UNBLOCKED right now
+
+Safe to do without any client input:
+
+- Responsive QA at 375px, 768px, 1280px on all three pages
+- Keyboard-only tab pass, confirm focus states are visible
+- Confirm no section is stuck at `opacity: 0` (see the fade-in note below)
+- Lighthouse pass on structure and accessibility
+- Tighten semantics or ARIA where the ported markup is weak
+
+### 5. Work that is BLOCKED on the client
+
+Do not start these, and do not invent content to unblock them:
+
+- Any real copy. It goes in `CONTENT_DECK.md` first, then into the HTML
+- Logo, favicon, brand colors
+- Phone, email, business hours, service area specifics
+- Formspree form creation and ID
+- Hero photo or video
+- Domain, DNS, GitHub Pages, `CNAME`
+
+### 6. Standing rule for this repo
+
+If a task would make this site read or look like Elite Care Recovery, stop and raise it.
+See "Hard Separation" below. That section is the most important part of this file.
+
+---
+
 ## Project Snapshot
 
 - **Client:** Ortho Flow Recovery (Miami, FL)
@@ -14,7 +88,8 @@ Guidance for Claude Code when working in this repository.
 - **Domain:** `orthoflowrecovery.com` (NOT yet wired to this repo, see DNS section)
 - **Repo:** `github.com/SebbyServices/OrthoFlowRecovery`, **public**
 - **Developer:** Sebby IT Consulting, Corp.
-- **Status:** Skeleton only. No approved copy, no brand assets, no live form.
+- **Status:** Skeleton only, committed locally as `cfcdb98`, not pushed. No approved
+  copy, no brand assets, no live form. See "START HERE" above for the current state.
 
 **Relationship to Elite Care Recovery:** John Pierce is the brother of Chris Pierce.
 Elite Care Recovery is a **separate client** in a **separate repo**, serving the same
@@ -144,9 +219,15 @@ Lessons carried over from the Elite Care launch, which cost four days:
 Verify with:
 
 ```bash
-dig +short elitecarerecovery.net A     # pattern reference
+# once the domain is wired, all four of these must look right before enabling HTTPS
+dig +short orthoflowrecovery.com A
+dig +short orthoflowrecovery.com AAAA        # the one that stalled Elite Care
+dig +short orthoflowrecovery.com MX          # confirm business email is untouched
 gh api repos/SebbyServices/OrthoFlowRecovery/pages --jq '.https_certificate.domains'
 ```
+
+Note: `gh api .../pages` returns 404 until GitHub Pages is enabled on the repo. That is
+expected right now, not an error.
 
 ---
 
@@ -204,4 +285,7 @@ gh api repos/SebbyServices/OrthoFlowRecovery/pages --jq '.https_certificate.doma
 
 - Aug 25, 2026: skeleton scaffolded from the Elite Care architecture. Design system and
   JS ported, all client copy replaced with placeholders, brand tokens genericized,
-  Formspree and contact details deliberately left unwired.
+  Formspree and contact details deliberately left unwired. Committed as `cfcdb98`.
+- Aug 25, 2026: added the "START HERE: Session Bootstrap" section so a cold session can
+  orient without re-briefing. **Keep it current.** When the state in that table changes,
+  update the table in the same commit as the change itself.
