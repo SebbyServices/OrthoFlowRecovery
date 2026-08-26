@@ -8,9 +8,15 @@
   --color-bg-alt: #F2EDE5;
   --color-charcoal: #1A1A1A;
   --color-charcoal-soft: #3A3A3A;
-  /* TODO: placeholder accent. Replace both values from the Ortho Flow logo once received. */
-  --color-accent: #0F766E;
-  --color-accent-dark: #0B5A54;
+  /* Brand navy, sampled from the client logo supplied 2026-08-26. */
+  --color-accent: #003677;
+  --color-accent-dark: #002550;
+  /* Secondary sky blue from the logo. DECORATIVE ONLY. It measures 2.71:1 on cream
+     and 2.90:1 under white, so it fails WCAG AA for text and for any button that
+     carries a label. Use it for rules, dividers, and the hero flourish. */
+  --color-accent-light: #5DA0E2;
+  /* The gray used for RECOVERY in the logo. 6.02:1 on cream, safe for body text. */
+  --color-slate: #5C646F;
   --color-gold: #B8965A;
   --color-border: #E5DFD3;
   --color-shadow: rgba(26, 26, 26, 0.08);
@@ -1085,12 +1091,9 @@ footer {
 }
 
 .footer-logo {
-  width: 150px;
+  width: 190px;
   height: auto;
   margin-bottom: 1rem;
-  background-color: white;
-  padding: 0.05rem 0.25rem;
-  border-radius: 4px;
   display: block;
 }
 
