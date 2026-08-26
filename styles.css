@@ -1,5 +1,5 @@
 /* ============================================================================
-   Ortho Flow Recovery — Styles
+   Ortho Flow Recovery: Styles
    ============================================================================ */
 
 /* Root: Color palette & typography scale */
@@ -66,7 +66,7 @@ h3 {
   font-size: 1.5rem;
 }
 
-/* Eyebrow pattern — uppercase label before section headline */
+/* Eyebrow pattern: uppercase label before section headline */
 .eyebrow {
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
@@ -634,7 +634,7 @@ button,
   line-height: 1.65;
 }
 
-/* Step card — numbered 01, 02, 03, 04 */
+/* Step card: numbered 01, 02, 03, 04 */
 .step-card {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -790,7 +790,7 @@ button,
   color: var(--color-gold);
 }
 
-/* Core values grid — F E P C */
+/* Core values grid: one cell per value, count set by CONTENT_DECK.md */
 .values-grid {
   display: grid;
   grid-template-columns: 1fr;

@@ -1,5 +1,5 @@
 /* ============================================================================
-   Ortho Flow Recovery — Main JavaScript
+   Ortho Flow Recovery: Main JavaScript
    ============================================================================ */
 
 /* 1. STICKY NAV: Toggle .scrolled class after 50px scroll */

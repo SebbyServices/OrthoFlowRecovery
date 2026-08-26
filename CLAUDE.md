@@ -249,6 +249,12 @@ expected right now, not an error.
 7. **Mobile-first.** Min-width queries at 640/768/1024/1280. Touch targets 44x44px.
 8. **Keep JS minimal.** No tracking, no analytics, no third-party scripts beyond Google
    Fonts without explicit approval.
+9. **No em dashes anywhere.** Not in copy, comments, commit messages, or docs. Use a
+   comma, a colon, or a full stop. When replacing one, a blind swap to a comma creates
+   comma splices, so use a colon for headings and definition-style lines and a full stop
+   where the next clause stands alone. Five em dashes came across in the ported
+   `styles.css` and `main.js` comments and were cleaned on 2026-08-25. Re-check after
+   porting anything else from another repo.
 
 ---
 
