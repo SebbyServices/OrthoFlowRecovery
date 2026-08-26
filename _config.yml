@@ -1,0 +1,14 @@
+# GitHub Pages serves the repository root, so every tracked file is fetchable at the
+# live site URL unless it is excluded here. These are internal working documents and
+# must never be published with the site.
+#
+# This only works because the Pages build type is "legacy" (Jekyll). If the repo is
+# ever switched to a GitHub Actions workflow build, this file stops being honored and
+# the internal docs become publicly fetchable again. Re-verify after any Pages change:
+#   curl -o /dev/null -w '%{http_code}\n' https://<pages-url>/CLAUDE.md   # expect 404
+exclude:
+  - CLAUDE.md
+  - CONTENT_DECK.md
+  - README.md
+  - PRIVATE_NOTES.local.md
+  - assets/ortho-flow-logo-master.png

@@ -2,3 +2,6 @@
 *.log
 .vscode/
 .idea/
+
+# Private working notes, never committed. This repo is public.
+PRIVATE_NOTES.local.md
