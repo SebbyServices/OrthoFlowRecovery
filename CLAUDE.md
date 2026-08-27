@@ -108,17 +108,17 @@ See "Hard Separation" below. That section is the most important part of this fil
 
 - **Client:** Ortho Flow Recovery (Miami, FL)
 - **Business:** Post-operative recovery equipment, serving Miami and surrounding areas
-- **Owner contact:** John Pierce
+- **Owner contact:** see `PRIVATE_NOTES.local.md`
 - **Domain:** `orthoflowrecovery.com` (NOT yet wired to this repo, see DNS section)
 - **Repo:** `github.com/SebbyServices/OrthoFlowRecovery`, **public**
 - **Developer:** Sebby IT Consulting, Corp.
-- **Status:** Skeleton only, pushed as `4c589b5`. No approved copy, no brand assets,
-  no live form. See "START HERE" above for the current state.
+- **Status:** Live on GitHub Pages with real brand assets and no approved copy. See
+  "START HERE" above for the current state.
 
-**Relationship to Elite Care Recovery:** John Pierce is the brother of Chris Pierce.
-Elite Care Recovery is a **separate client** in a **separate repo**, serving the same
-Miami market with post-op recovery equipment. Treat them as distinct businesses that
-may compete. See "Hard Separation" below. This is not optional.
+**Relationship to the sibling client:** There is a second, separate client in a separate
+repo operating in the same space. Treat the two as distinct businesses that may compete.
+The specifics of who they are to each other are in `PRIVATE_NOTES.local.md`, not here,
+because this file is public. See "Hard Separation" below. This is not optional.
 
 ---
 
@@ -127,16 +127,22 @@ may compete. See "Hard Separation" below. This is not optional.
 This skeleton borrowed Elite Care's **architecture and design system only**. Everything
 below is forbidden to carry across:
 
-- **Never copy Elite Care's prose.** Their homepage story is about the two Pierce
-  brothers together. It cannot describe one brother's separate company.
+- **Never copy the sibling client's prose.** Their homepage story describes a shared
+  family business. It cannot be reused to describe this separate company.
 - **Never reuse the Elite Care Formspree ID (`xeedwqvp`).** It routes leads into Elite
   Care's inbox. Ortho Flow needs its own form. The placeholder in `index.html` is
   `REPLACE_WITH_ORTHO_FLOW_FORM_ID`.
 - **Never reuse the Elite Care phone number** or any `@elitecarerecovery.net` address.
   The specific numbers live in `PRIVATE_NOTES.local.md`, which is gitignored. Do not
   write client contact details into any tracked file. See "This repo is public" below.
-- **Never copy Elite Care or NICE product assets.** The NICE1 is Elite Care's product
-  line. Do not assume Ortho Flow distributes it. Confirm the device line first.
+- **Never copy Elite Care or NICE product assets.** Confirmed 2026-08-26: the NICE1 is a
+  manufacturer product sold through a national dealer network, not Elite Care's
+  exclusive line. Neu Medical DME in Minnesota sells the same device, and so does the
+  sibling client, so the two sites cannot differentiate on hardware at all.
+  Differentiation has to come from service, delivery, and support.
+  Product photography still belongs to NICE or to whichever dealer commissioned it.
+  Never lift product images from another dealer's site. Ask whether NICE publishes an
+  authorized dealer asset kit instead.
 - **Never copy `CONTENT_DECK.md` from the Elite Care repo.** That is their approved
   client content.
 
