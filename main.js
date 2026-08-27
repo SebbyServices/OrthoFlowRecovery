@@ -115,8 +115,10 @@ if (form) {
         submitBtn.textContent = '✓ Sent!';
 
         if (formStatus) {
+          /* No response-time promise until the client commits to one in writing.
+             The previous copy promised 24 hours, which nobody had agreed to. */
           formStatus.textContent =
-            'Thanks for reaching out! We\'ll be in touch within 24 hours.';
+            'Thanks for reaching out. We have your request and will be in touch.';
           formStatus.classList.add('show', 'success');
         }
 

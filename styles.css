@@ -64,6 +64,12 @@ h1 {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
 }
 
+/* Subpages lead with an h1 for document structure, but visually they are section
+   headings, not heroes. Without this they tower over every other h2 on the page. */
+main:not(:has(.hero)) h1 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
 h2 {
   font-size: clamp(2rem, 3.5vw, 3rem);
 }
@@ -427,7 +433,13 @@ nav .btn-nav:focus {
 }
 
 /* Mobile menu footer */
-.mobile-menu-footer {
+.mobile-menu-/* Contact values not yet supplied by the client. Rendered as text, not as links,
+   so the footer carries no dead tel:/mailto: anchors before launch. */
+.pending-contact {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+footer {
   margin-top: auto;
   padding: 1.5rem 2rem;
   border-top: 1px solid var(--color-border);
