@@ -12,13 +12,13 @@
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://orthoflowrecovery.com/about.html" />
+    <meta property="og:url" content="https://orthoflowrecovery.com/preview/about.html" />
     <meta property="og:title" content="About | Ortho Flow Recovery" />
     <meta property="og:description" content="The story behind Ortho Flow Recovery, serving post-operative patients across Miami and surrounding areas." />
-    <meta property="og:image" content="assets/ortho-flow-logo.png" />
+    <meta property="og:image" content="../assets/ortho-flow-logo.png" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
 
   <body>
@@ -40,13 +40,13 @@
     <nav>
       <div class="nav-container">
         <a href="index.html" class="nav-logo-link">
-          <img src="assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="nav-logo" />
+          <img src="../assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="nav-logo" />
         </a>
 
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="culture.html">Culture</a></li>
+          <li><a href="surgeons.html">For Surgeons</a></li>
         </ul>
 
         <a href="index.html#reserve" class="btn btn-nav">Reserve Now →</a>
@@ -62,7 +62,7 @@
     <!-- Mobile menu overlay (outside nav to fix fixed positioning bug) -->
     <div class="mobile-menu">
       <div class="mobile-menu-header">
-        <img src="assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="mobile-menu-logo" />
+        <img src="../assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="mobile-menu-logo" />
         <button class="mobile-menu-close" aria-label="Close navigation menu">
           <span></span>
           <span></span>
@@ -71,7 +71,7 @@
 
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="culture.html">Culture</a>
+      <a href="surgeons.html">For Surgeons</a>
       <a href="index.html#reserve" class="btn btn-primary">Reserve Now</a>
     </div>
 
@@ -118,6 +118,38 @@
         </div>
       </section>
 
+      <!-- Vision and mission. Moved here from the retired standalone Culture page,
+           see CLAUDE.md Architecture, "Page 3: Culture is retired." -->
+      <section class="bg-cream">
+        <div class="container">
+          <div class="eyebrow">Our Vision</div>
+          <h2>[Vision headline placeholder]</h2>
+          <p>[Vision statement placeholder. Awaiting client copy.]</p>
+        </div>
+      </section>
+
+      <section class="bg-cream-alt">
+        <div class="container">
+          <div class="eyebrow">Our Mission</div>
+          <h2>[Mission headline placeholder]</h2>
+          <p>[Mission statement placeholder. Awaiting client copy.]</p>
+        </div>
+      </section>
+
+      <!-- Core values. Also moved from the retired Culture page. -->
+      <section class="bg-charcoal">
+        <div class="container">
+          <div class="eyebrow">Core Values</div>
+          <h2>[Values headline placeholder]</h2>
+          <div class="card-grid">
+            <div class="card"><h3>[Value one]</h3><p>[Description placeholder.]</p></div>
+            <div class="card"><h3>[Value two]</h3><p>[Description placeholder.]</p></div>
+            <div class="card"><h3>[Value three]</h3><p>[Description placeholder.]</p></div>
+            <div class="card"><h3>[Value four]</h3><p>[Description placeholder.]</p></div>
+          </div>
+        </div>
+      </section>
+
       <!-- CTA band -->
       <section class="bg-accent">
         <div class="container">
@@ -132,7 +164,7 @@
       <div class="footer-top">
         <!-- Column 1: Brand -->
         <div class="footer-column">
-          <img src="assets/ortho-flow-logo-reverse.png" alt="Ortho Flow Recovery" class="footer-logo" />
+          <img src="../assets/ortho-flow-logo-reverse.png" alt="Ortho Flow Recovery" class="footer-logo" />
           <!-- TODO: Replace with approved tagline from CONTENT_DECK.md -->
           <p class="footer-tagline"><strong>[Tagline placeholder]</strong></p>
           <p class="footer-description">[One-line description placeholder. Awaiting client copy.]</p>
@@ -174,7 +206,7 @@
           <ul class="quick-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="culture.html">Our Culture</a></li>
+            <li><a href="surgeons.html">For Surgeons &amp; Practices</a></li>
             <li><a href="index.html#reserve">Reserve Equipment</a></li>
           </ul>
         </div>
@@ -189,6 +221,6 @@
       </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
   </body>
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ortho Flow Recovery | Now Taking Reservations</title>
+    <meta name="description" content="Ortho Flow Recovery, serving Miami-Dade and Broward counties. Now taking reservations." />
+
+    <!-- This is the agreement's Section 2 holding page: logo, phone, service area,
+         and "Now Taking Reservations," nothing else. No pricing, no clinical claims.
+         Deliberately NOT noindex, unlike everything under /preview/: this page is
+         meant to be found while the client's outreach is underway. It is replaced
+         by the full build at launch, see CLAUDE.md Architecture, "Holding page." -->
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://orthoflowrecovery.com/" />
+    <meta property="og:title" content="Ortho Flow Recovery | Now Taking Reservations" />
+    <meta property="og:description" content="Ortho Flow Recovery, serving Miami-Dade and Broward counties. Now taking reservations." />
+    <meta property="og:image" content="assets/ortho-flow-logo.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles. Shared stylesheet for tokens and fonts, plus a small page-local block
+         below: this page has no nav, no footer, no shared chrome, so it doesn't need
+         the rest of styles.css and isn't worth new shared classes for a page that gets
+         replaced wholesale at launch. -->
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .holding {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background-color: var(--color-bg);
+        padding: 2rem 1.5rem;
+      }
+      .holding-card {
+        max-width: 32rem;
+      }
+      .holding-logo {
+        max-width: 320px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 2rem;
+      }
+      .holding-card h1 {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+        margin-bottom: 0.75rem;
+      }
+      .holding-area {
+        color: var(--color-slate);
+        font-size: 1.0625rem;
+        margin-bottom: 2rem;
+      }
+      .holding-phone {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 0 0.5rem;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        font-weight: 600;
+        color: var(--color-accent);
+        text-decoration: none;
+      }
+      .holding-phone:hover,
+      .holding-phone:focus-visible {
+        color: var(--color-accent-dark);
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="holding">
+      <div class="holding-card">
+        <img src="assets/ortho-flow-logo.png" alt="Ortho Flow Recovery" class="holding-logo" />
+        <h1>Now Taking Reservations</h1>
+        <p class="holding-area">Serving Miami-Dade and Broward counties</p>
+        <a href="tel:+17862142659" class="holding-phone">(786) 214-2659</a>
+      </div>
+    </main>
+  </body>
+</html>

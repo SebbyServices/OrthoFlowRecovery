@@ -12,13 +12,13 @@
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://orthoflowrecovery.com/" />
+    <meta property="og:url" content="https://orthoflowrecovery.com/preview/" />
     <meta property="og:title" content="Ortho Flow Recovery | Post-Op Recovery Equipment | Miami" />
     <meta property="og:description" content="Ortho Flow Recovery delivers post-operative recovery equipment with white-glove service across Miami and surrounding areas." />
-    <meta property="og:image" content="assets/ortho-flow-logo.png" />
+    <meta property="og:image" content="../assets/ortho-flow-logo.png" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
 
   <body>
@@ -40,13 +40,13 @@
     <nav>
       <div class="nav-container">
         <a href="index.html" class="nav-logo-link">
-          <img src="assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="nav-logo" />
+          <img src="../assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="nav-logo" />
         </a>
 
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
-          <li><a href="culture.html">Culture</a></li>
+          <li><a href="surgeons.html">For Surgeons</a></li>
         </ul>
 
         <a href="#reserve" class="btn btn-nav">Reserve Now →</a>
@@ -62,7 +62,7 @@
     <!-- Mobile menu overlay (outside nav to fix fixed positioning bug) -->
     <div class="mobile-menu">
       <div class="mobile-menu-header">
-        <img src="assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="mobile-menu-logo" />
+        <img src="../assets/ortho-flow-wordmark.png" alt="Ortho Flow Recovery" class="mobile-menu-logo" />
         <button class="mobile-menu-close" aria-label="Close navigation menu">
           <span></span>
           <span></span>
@@ -71,7 +71,7 @@
 
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="culture.html">Culture</a>
+      <a href="surgeons.html">For Surgeons</a>
       <a href="#reserve" class="btn btn-primary">Reserve Now</a>
     </div>
 
@@ -161,12 +161,16 @@
         </div>
       </section>
 
-      <!-- Reserve form -->
+      <!-- Reserve form. Field set is a signed contractual constraint, not a style
+           choice: name, phone, email, and a non-clinical timing range only. No
+           procedure date, no free-text field. See CLAUDE.md Architecture, "Enquiry
+           forms: two now, both field-restricted." -->
       <section id="reserve" class="bg-cream-alt">
         <div class="container">
           <div class="eyebrow">Reserve Now</div>
           <h2>[Form section title placeholder]</h2>
           <p>[Short instruction line placeholder.]</p>
+          <p class="form-notice">Please do not include medical information in this form. We will contact you to discuss any specifics by phone.</p>
 
           <!-- TODO: Create a NEW Formspree form for Ortho Flow and paste its ID below.
                Never reuse the Elite Care Recovery form ID. Doing so routes Ortho Flow
@@ -185,12 +189,14 @@
               <input type="email" id="email" name="email" required />
             </div>
             <div class="form-group">
-              <label for="procedure_date">Procedure Date</label>
-              <input type="date" id="procedure_date" name="procedure_date" required />
-            </div>
-            <div class="form-group">
-              <label for="notes">Anything we should know?</label>
-              <textarea id="notes" name="notes" rows="4"></textarea>
+              <label for="timing">When Do You Need Equipment?</label>
+              <select id="timing" name="timing" required>
+                <option value="" disabled selected>Select a timeframe</option>
+                <option value="within-2-weeks">Within 2 weeks</option>
+                <option value="2-to-6-weeks">2 to 6 weeks</option>
+                <option value="6-or-more-weeks">6 or more weeks</option>
+                <option value="not-sure-yet">Not sure yet</option>
+              </select>
             </div>
             <button type="submit" class="btn btn-primary">Request Equipment</button>
             <p class="form-status" role="status" aria-live="polite"></p>
@@ -203,7 +209,7 @@
       <div class="footer-top">
         <!-- Column 1: Brand -->
         <div class="footer-column">
-          <img src="assets/ortho-flow-logo-reverse.png" alt="Ortho Flow Recovery" class="footer-logo" />
+          <img src="../assets/ortho-flow-logo-reverse.png" alt="Ortho Flow Recovery" class="footer-logo" />
           <!-- TODO: Replace with approved tagline from CONTENT_DECK.md -->
           <p class="footer-tagline"><strong>[Tagline placeholder]</strong></p>
           <p class="footer-description">[One-line description placeholder. Awaiting client copy.]</p>
@@ -245,7 +251,7 @@
           <ul class="quick-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="culture.html">Our Culture</a></li>
+            <li><a href="surgeons.html">For Surgeons &amp; Practices</a></li>
             <li><a href="#reserve">Reserve Equipment</a></li>
           </ul>
         </div>
@@ -260,6 +266,6 @@
       </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="../main.js"></script>
   </body>
 </html>

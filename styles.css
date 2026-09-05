@@ -861,6 +861,14 @@ form {
   margin-top: 2rem;
 }
 
+/* Required notice on both enquiry forms: a contractual term, not a style choice.
+   See CLAUDE.md Architecture, "Enquiry forms: two now, both field-restricted." */
+.form-notice {
+  font-size: 0.85rem;
+  color: var(--color-slate);
+  margin-top: 0.5rem;
+}
+
 .form-group {
   margin-bottom: 1.5rem;
   display: flex;
