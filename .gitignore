@@ -5,3 +5,11 @@
 
 # Private working notes, never committed. This repo is public.
 PRIVATE_NOTES.local.md
+
+# Commercial paperwork (agreements, proposals, invoices) has landed directly in this
+# folder by habit at least once: a signed agreement PDF sat here untracked for a day
+# before anyone noticed, one `git add .` away from going public. This repo has no
+# legitimate use for a PDF or Word doc, so blanket-ignore them. Real client paperwork
+# lives in the ops folder outside any repo, never here.
+*.pdf
+*.docx

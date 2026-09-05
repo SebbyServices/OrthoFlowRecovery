@@ -1,6 +1,6 @@
 # CONTENT_DECK.md
 
-**Approved client copy for Ortho Flow Recovery. PARTIALLY FILLED as of 2026-08-26.**
+**Approved client copy for Ortho Flow Recovery. PARTIALLY FILLED as of 2026-09-05.**
 
 This file is the single source of truth for every word on the site. Nothing goes into
 the HTML unless it is here first, supplied or approved by the client.
@@ -8,18 +8,27 @@ the HTML unless it is here first, supplied or approved by the client.
 Until this file is filled in, the site keeps visible `[placeholder]` text. Do not
 substitute invented marketing copy. See "No copy invention" in `CLAUDE.md`.
 
+**Updated 2026-09-05: several facts below moved from unconfirmed to confirmed, and the
+page structure changed.** See `PRIVATE_NOTES.local.md` for the specifics, this file only
+states what's safe to state publicly. The "Culture Page" section further down is now
+stale, see the note at its head before using anything in it.
+
 ---
 
 ## Business Basics
 
 - Legal name: **Ortho Flow Recovery LLC** (client supplied 2026-08-26)
 - Owner: supplied. Held in `PRIVATE_NOTES.local.md`, not here.
-- Phone: supplied but **DISPUTED, DO NOT PUBLISH.** There is an unresolved conflict over
-  which number belongs to this business. See `PRIVATE_NOTES.local.md`.
+- Phone: **confirmed and live**, on the root holding page. Still `[placeholder]` inside
+  `preview/`, since that build isn't approved yet, but the number itself is no longer
+  gated. See `PRIVATE_NOTES.local.md` for the number.
 - Email: supplied. Held in `PRIVATE_NOTES.local.md`. Worth asking whether the client
   wants a role address such as `info@` on the public site rather than a personal one.
-- Service area: **UNCONFIRMED.** The markup currently hardcodes "Miami and surrounding
-  areas" and there is evidence the real coverage area differs. Confirm before launch.
+- Address: supplied, and it must **never** be published. See `PRIVATE_NOTES.local.md`.
+  Wherever a street address might otherwise appear (footer, business listings), use the
+  service area instead.
+- Service area: **CONFIRMED.** See `PRIVATE_NOTES.local.md` for the exact wording. The
+  markup still hardcodes the old, wrong text and needs updating once real copy goes in.
 - Business hours: not supplied
 - Device line distributed: **NICE** (confirmed 2026-08-26 by the client's own patient
   feedback document, which refers throughout to "the NICE machine"). The specific model
@@ -33,13 +42,23 @@ substitute invented marketing copy. See "No copy invention" in `CLAUDE.md`.
 ## Brand
 
 - Logo file: supplied 2026-08-26 as `LOGO clean_large (Orthoflow).png`, 4096x2730 RGBA.
-  Derived web assets committed under `assets/`. See "Logo assets" in `CLAUDE.md`.
-- Primary brand color: **#003677** navy, sampled from the logo
+  Derived web assets committed under `assets/`. See "Logo assets" in `CLAUDE.md`. The
+  current master is a 960x640 raster copy, sufficient for web but not print. A
+  higher-resolution or vector source would let these be regenerated cleaner.
+- Primary brand color: **#003677** navy, sampled from the logo. **A client-sent design
+  direction proposes a slightly different resample and an expanded palette, not yet
+  confirmed in writing.** See `PRIVATE_NOTES.local.md`. Do not change this value on that
+  document alone.
 - Secondary color: **#5DA0E2** sky blue. **Decorative only.** It measures 2.71:1 on the
   cream background and 2.90:1 under white, so it fails WCAG AA for text and buttons.
 - Supporting gray: **#5C646F**, the color of RECOVERY in the logo. 6.02:1 on cream, safe.
+- Fonts: currently Playfair Display + Inter. **A pending design direction proposes
+  Poppins + Source Sans 3 instead, not yet confirmed.** See `PRIVATE_NOTES.local.md`.
 - Tagline: **"Better Recovery. Delivered. Simplified."** (set in the logo lockup itself,
-  so it is client authored, not invented)
+  so it is client authored, not invented). **Cannot go on the website as written.** "Better
+  recovery" asserts an improved medical outcome, which the no-clinical-claims rule bars
+  absent NICE-cleared wording supplied in writing. See "No clinical claims" in
+  `CLAUDE.md` and `PRIVATE_NOTES.local.md` for where this stands.
 
 ## Homepage
 
@@ -49,33 +68,59 @@ substitute invented marketing copy. See "No copy invention" in `CLAUDE.md`.
 - Benefit 1 / 2 / 3:
 - Equipment section title and description:
 - Process steps 1 through 4:
+- **Pricing section, all tiers shown together.** Figures not yet supplied. A per-day
+  rate must never be shown alone, see `CLAUDE.md` Architecture.
 - Story band headline and paragraph:
 - Reserve section title and instruction line:
 
 ## About Page
 
+Now also absorbs the vision, mission, and values material that used to sit on a
+standalone Culture page, see below.
+
 - Headline:
 - Story paragraphs:
 - Stats:
 - Why-us reasons:
-- CTA band headline and line:
-
-## Culture Page
-
 - Vision:
 - Mission:
 - Core values:
-- Objectives:
 - CTA band headline and line:
+
+## For Surgeons and Practices Page (replaces Culture)
+
+New as of the signed agreement, 2026-09-04. Addressed to surgeons, practice managers,
+surgical coordinators, and ASC or discharge staff, not patients. Not yet built in the
+HTML, see `CLAUDE.md` Architecture for the rename that has to happen first.
+
+- What OrthoFlow handles for the office:
+- What the office does not have to manage:
+- How to refer a patient, steps:
+- Coverage and response times:
+- **Required compliance line, PENDING ATTORNEY REVIEW, do not publish without sign-off:**
+  > "There is no charge to your practice, and nothing is offered to your practice. The
+  > patient pays us directly."
+
+  This has to survive verbatim if used. It is a Florida Patient Brokering Act concern,
+  not a copy preference: nothing of value may be offered to a referral source anywhere
+  on this page, no fee, no rebate, no free equipment, no sponsored lunch, no practice
+  discount. Do not draft additional referral language here from general marketing
+  instinct without the same review.
+- Practice enquiry form: name, phone, email only. No patient information, and the form
+  must say so visibly. See `CLAUDE.md` Architecture for the full field-restriction rule.
 
 ## Compliance
 
-- HIPAA or medical disclaimer language: not drafted
+- HIPAA or medical disclaimer language: not drafted. See `CLAUDE.md` Architecture for
+  the field-level rules that are now a signed contractual term, independent of any
+  disclaimer wording.
 - Any claims requiring substantiation (delivery windows, response times): not drafted
 - **Patient testimonials: BLOCKED.** Client supplied testimonial material exists but is
   not usable as website copy. Publishing any of it requires written per patient
   marketing authorization plus a legal read of the medical claims involved. Rationale
   and specifics are in `PRIVATE_NOTES.local.md`. The default answer is no.
+- **Referral incentives: BLOCKED.** Nothing of value may be offered to a referral source
+  anywhere on the surgeons and practices page. See that page's section above.
 
 ---
 
@@ -169,7 +214,13 @@ cannot be drafted for him without it becoming fiction.
 
 ---
 
-## Culture Page
+## Culture Page (superseded, see note)
+
+**This standalone page no longer exists in the signed scope.** The vision, mission, and
+values material below now belongs on the About page instead, see the outline above. It
+is left here, unedited, only because the vision and mission drafts may still be useful
+raw material for that section. Do not build a Culture page from this. Do not assume the
+core values or objectives below are still wanted verbatim once they move to About.
 
 These must reflect what John actually believes, not what reads well. Drafts are starting
 points for a conversation with him.
