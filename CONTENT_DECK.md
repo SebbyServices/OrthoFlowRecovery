@@ -13,6 +13,13 @@ page structure changed.** See `PRIVATE_NOTES.local.md` for the specifics, this f
 states what's safe to state publicly. The "Culture Page" section further down is now
 stale, see the note at its head before using anything in it.
 
+**Same day, second pass:** weekday business hours confirmed off the signed agreement's
+cover page (Sat/Sun still open, ask John). Two leftover "procedure date" references in
+the homepage draft corrected to match the timing-range picklist actually built into the
+form. Draft copy for the For Surgeons and Practices page added below, it had been an
+outline only until now. None of this is approved. Every `[FACT NEEDED]` tag below still
+blocks that section from going into the HTML.
+
 ---
 
 ## Business Basics
@@ -29,7 +36,9 @@ stale, see the note at its head before using anything in it.
   service area instead.
 - Service area: **CONFIRMED.** See `PRIVATE_NOTES.local.md` for the exact wording. The
   markup still hardcodes the old, wrong text and needs updating once real copy goes in.
-- Business hours: not supplied
+- Business hours: **Mon-Fri, 8:00 AM to 6:00 PM, confirmed on the signed agreement's
+  cover page (2026-09-05).** Saturday and Sunday still not supplied, ask John directly
+  before filling in the footer's Sat/Sun rows.
 - Device line distributed: **NICE** (confirmed 2026-08-26 by the client's own patient
   feedback document, which refers throughout to "the NICE machine"). The specific model
   is still unconfirmed. Do not write "NICE1" until John confirms it.
@@ -175,7 +184,10 @@ until John supplies them.
 > with NICE, and confirm what wording NICE permits dealers to use.]**
 
 **Process, four steps**
-1. **Reserve before surgery.** Tell us your procedure date and we hold a unit.
+1. **Tell us your timeframe.** Reserve a unit with a general window, not a procedure
+   date. **[Matches the reserve form's timing-range picklist: within 2 weeks, 2 to 6
+   weeks, 6 or more weeks, or not sure yet. No date field, per the signed agreement's
+   HIPAA-shaped form rules, see `CLAUDE.md` Architecture.]**
 2. **We deliver and set up.** **[FACT NEEDED: delivery window. Do not write "24 hours"
    or "same day" unless John commits to it.]**
 3. **We check in during recovery.** **[FACT NEEDED: cadence. His patient feedback shows
@@ -186,10 +198,11 @@ until John supplies them.
 > **[FACT NEEDED: John's actual reason for starting this. One short paragraph in his own
 > words. Do not invent an origin story.]**
 
-**Reserve section title:** Reserve a unit for your procedure
-**Instruction line:** Tell us your procedure date and we will confirm availability and
-delivery. **[FACT NEEDED: response time commitment. The form currently promises a reply
-within 24 hours in main.js. Either John commits to that or the wording changes.]**
+**Reserve section title:** Reserve a unit
+**Instruction line:** Tell us your general timeframe and we will confirm availability
+and delivery. **[FACT NEEDED: response time commitment. The success message currently
+promises no specific turnaround, since nobody had agreed to the old "24 hours" wording.
+John can supply a real commitment in writing if he wants one stated.]**
 
 ---
 
@@ -211,6 +224,63 @@ cannot be drafted for him without it becoming fiction.
 **Why-us reasons:** reuse the three service benefits from the homepage, expanded.
 
 **CTA band headline:** Talk to us before your procedure
+
+---
+
+## For Surgeons and Practices Page
+
+Written to the section headings already scaffolded in `preview/surgeons.html`. Same
+rules as above, plus two specific to this page: no referral-incentive language anywhere
+(see the compliance line further up), and the compliance line itself must survive
+verbatim, not be paraphrased or expanded on here.
+
+**Hero headline** (pick one)
+- A. Built for referring practices, not just patients.
+- B. A recovery equipment partner your office doesn't have to manage.
+- C. One call away for your post-op patients.
+
+**Hero subheadline**
+> Ortho Flow Recovery delivers, sets up, and collects post-operative recovery equipment
+> directly with the patient, serving Miami-Dade and Broward, so your office never has to
+> coordinate any of it.
+
+**"What OrthoFlow Handles" section title:** What we handle for your patients
+- Delivery and setup, timed around the patient's own schedule.
+  **[FACT NEEDED: delivery window, same figure as the homepage process steps.]**
+- Check-ins during recovery. **[FACT NEEDED: cadence, same as homepage.]**
+- Pickup once the surgeon clears the patient. No return shipping, nothing for the office
+  to track.
+
+**"What Your Office Doesn't Have To Manage" section title:** What comes off your plate
+- No equipment inventory to stock, store, or maintain.
+- No delivery or pickup logistics for staff to coordinate.
+- No billing conversations. Patients handle payment directly with us.
+
+**"Referring A Patient" steps, three step-cards**
+1. **Recommend Ortho Flow.** **[FACT NEEDED: confirm whether a referral card or
+   take-home handout exists, or if it's verbal only.]**
+2. **Patient reserves.** They contact us directly with their general timeframe, the same
+   non-clinical picklist used on the homepage form.
+3. **We handle the rest.** Delivery, setup, check-ins, and pickup, without involving
+   practice staff.
+
+**"Coverage & Response" cards**
+- Coverage area: Miami-Dade and Broward counties.
+- Response time to practices: **[FACT NEEDED. Distinct from the Website Care support
+  response times in the signed agreement, which cover Designer's response to Client, not
+  Client's response to a referring office.]**
+
+**Compliance Note section:** uses the required compliance line already recorded above,
+verbatim, pending attorney review. Do not draft additional copy in this section beyond a
+short lead-in sentence that introduces the box, for example "A note on how this works
+financially:" with no further elaboration.
+
+**"For Your Office" section title:** Refer a patient
+**Instruction line:** Send us your patient's name, phone, and email; we'll take it from
+there. No patient information needed, and please don't include any.
+
+**CTA band headline:** Have a patient who needs equipment?
+**CTA supporting line:** **[FACT NEEDED: a short closing line, John's choice of tone.]**
 
 ---
 

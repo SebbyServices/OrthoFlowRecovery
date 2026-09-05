@@ -37,24 +37,26 @@ was blocking publication is done, the service area is confirmed, and the phone n
 now appears on the live holding page. The client's address must still never be
 published, that has not changed.
 
-**Domain status: DNS wiring in progress.** `orthoflowrecovery.com` is registered
-through a GoDaddy account that also runs the client's live Microsoft 365 business
-email. Sebby has registrar access and is switching the site's A/AAAA/CNAME records from
-GoDaddy's own Website Builder to GitHub Pages this session. **Do not touch, and do not
-assume anyone else has touched, the MX records or either TXT record (SPF and the
-Microsoft 365 verification string) or the `_dmarc` TXT record.** Those are live email
-and are not part of this change. See "DNS and Deploy" below for the exact record set
-and what this domain's zone actually contains, confirmed by screenshot this session.
+**Domain status: DNS wiring is DONE and verified live, 2026-09-05.** `orthoflowrecovery.com`
+is registered through a GoDaddy account that also runs the client's live Microsoft 365
+business email. All four A records and all four AAAA records resolve to GitHub Pages,
+the HTTPS certificate covers both `orthoflowrecovery.com` and `www.orthoflowrecovery.com`,
+and both the root holding page and `/preview/` return `200` over HTTPS on the custom
+domain. **MX, both TXT records (SPF and the Microsoft 365 verification string), and the
+`_dmarc` TXT record were re-verified unchanged this same pass.** Those are live email and
+were never part of this change. See "DNS and Deploy" below for the exact record set and
+what this domain's zone actually contains, confirmed by screenshot and by live `dig`
+this session.
 
 ### 1. Orient (run these first, in order)
 
 ```bash
-git log --oneline -4          # expect d900777, 7452c5a, 82d5f9a, 415ec9a, this session's work is uncommitted
-git status --short            # expect the holding-page split: renames plus edits, NOT clean
-git fetch -q origin && git rev-list --left-right --count origin/main...main   # expect 0 0 before committing
+git log --oneline -4          # expect 29a482c, 977a07f, 875e451, 5a0db93, already committed AND pushed
+git status --short            # expect clean, nothing pending
+git fetch -q origin && git rev-list --left-right --count origin/main...main   # expect 0 0, already in sync with origin
 python3 -m http.server 8000   # holding page at :8000/, full build at :8000/preview/
-curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com          # holding page once DNS clears
-curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com/preview/ # full build, once DNS clears
+curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com          # holding page, DNS is live, expect 200
+curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com/preview/ # full build, DNS is live, expect 200
 ```
 
 ### 2. Where things actually stand
@@ -74,14 +76,14 @@ curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com/preview/ 
 | Brand color / fonts | **Current values may be superseded.** A client-sent design direction proposes different fonts and slightly different color samples. Not yet confirmed in writing, do not change the stylesheet on this alone. See Architecture |
 | Contact phone | **Both gates cleared this session.** Live on the root holding page as a real `tel:` link. See `PRIVATE_NOTES.local.md` for the number itself, this file does not restate it |
 | Service area | **Confirmed**, and live on the root holding page. See `PRIVATE_NOTES.local.md` for the exact wording used elsewhere |
-| Business hours | Still not supplied |
+| Business hours | **Mon-Fri 8:00 AM to 6:00 PM confirmed** off the signed agreement's cover page, 2026-09-05. Sat/Sun still not supplied |
 | Enquiry forms | **Scaffolded this session, not wired, both under `preview/`.** Home's reserve form now uses a timing-range picklist instead of a procedure-date field, and the free-text notes field was removed. The new practice form on `preview/surgeons.html` collects name/phone/email only. Both show the required medical-information notice. Neither has a real Formspree endpoint yet |
 | Formspree form | **Deliberately unwired.** `REPLACE_WITH_ORTHO_FLOW_FORM_ID` (reserve) and `REPLACE_WITH_ORTHO_FLOW_PRACTICE_FORM_ID` (practice), one endpoint needed per form |
 | Product / device line | NICE, confirmed. Exact model and manufacturer photography rights still open |
 | Search indexing | `noindex, nofollow` on all three `preview/` pages. **The root holding page deliberately has no `noindex`**, see Architecture. Remove `preview/`'s `noindex` at launch |
-| Domain / DNS / Pages | GitHub Pages LIVE and built on `github.io`. **DNS wiring in progress this session**, see "DNS and Deploy." The domain also carries live Microsoft 365 business email, confirmed by zone screenshot, not to be touched |
+| Domain / DNS / Pages | GitHub Pages LIVE and built. **DNS wiring is DONE and verified live**: A/AAAA fully resolve, HTTPS cert covers both apex and `www`, holding page and `/preview/` both return 200 on the custom domain, see "DNS and Deploy." The domain also carries live Microsoft 365 business email, confirmed by zone screenshot and re-verified unchanged by `dig` this session, not to be touched |
 | Holding page | **Built this session**, at the repo root. Logo, phone, service area, "Now Taking Reservations." No pricing, no clinical claims, per the agreement's Section 2 spec |
-| Pushed to GitHub | Not yet. This session's rebuild is local only, see `git status` |
+| Pushed to GitHub | **Yes, already pushed** (`29a482c`, `977a07f`). Confirmed 2026-09-05 second pass: `git status` is clean and `origin/main...main` shows `0 0`. The commit itself still contains stale "uncommitted" language in this file's own prior text, corrected in this pass |
 
 ### 3. Ask Sebby before doing anything else
 
@@ -150,7 +152,8 @@ Do not start these, and do not invent content to unblock them:
 - Any real copy for any `preview/` page. The client approves it in `CONTENT_DECK.md`
   line by line, then it goes in
 - Publishing the client's street address, ever, absent his written instruction
-- Business hours, exact device model
+- Saturday/Sunday hours (weekdays now confirmed, see Session Bootstrap), exact device
+  model
 - Formspree form creation and IDs for either enquiry form
 - Hero photo or video
 - Any change to `styles.css` fonts or color tokens, pending written confirmation
@@ -491,7 +494,8 @@ not yet supplied. Do not build this section with placeholder numbers that look r
 GitHub Pages **is enabled and built**, serving the repository root at
 `https://sebbyservices.github.io/OrthoFlowRecovery/`. Build type is `legacy` (Jekyll).
 
-**DNS wiring started 2026-09-05.** Sebby has registrar access (GoDaddy) and is switching
+**DNS wiring started 2026-09-05, confirmed fully live the same day (second pass).**
+Sebby has registrar access (GoDaddy) and switched
 the domain from GoDaddy's own Website Builder to GitHub Pages. This domain's zone was
 confirmed by screenshot to carry **live Microsoft 365 business email and Teams/Skype for
 Business records**, not just a hypothetical risk carried over from the Elite Care
@@ -608,7 +612,7 @@ gh api repos/SebbyServices/OrthoFlowRecovery/pages --jq '.https_certificate.doma
 - [ ] Pricing figures for the new homepage pricing section, supplied in writing
 - [ ] Resolve every `[FACT NEEDED]` tag in the content deck. Do not guess at these
 - [ ] Verify the phone number's business-listing gate, see `PRIVATE_NOTES.local.md`
-- [ ] Business hours
+- [ ] Business hours: Sat/Sun still open (Mon-Fri 8am-6pm confirmed 2026-09-05)
 - [ ] Create both Formspree forms and wire the real IDs, once page 3 exists
 - [ ] Update `main.js`'s form handler to support two forms, not `querySelector('form')`
 - [ ] Hero photo or video
@@ -792,4 +796,42 @@ visible on the charcoal footer. That hack is gone now that a true reversed asset
     business email and Teams/Skype for Business records well beyond what the DNS
     section had been warning about in the abstract. Documented the exact record set so
     a future session doesn't have to rediscover which of 20 records are safe to touch
-  - None of this is committed yet, see `git status`
+  - This was all committed and pushed before the day was out (`29a482c`, `977a07f`),
+    confirmed in a same-day second pass; an earlier version of this file's own bootstrap
+    text still claimed it was uncommitted, which was stale by the time anyone read it
+    again
+- Sep 5, 2026 (second pass, same day): ran the full verification sweeps and a live DNS
+  check at Sebby's request.
+  - Sweeps came back clean: shared-chrome drift is exactly the three intended
+    `#reserve` diffs per subpage, em dash sweep is clean repo-wide, `#reserve` counts are
+    4/4 everywhere they should be
+  - DNS is not "in progress" as this file had claimed, it is done: all A/AAAA records
+    resolve, the HTTPS certificate covers both `orthoflowrecovery.com` and
+    `www.orthoflowrecovery.com`, and both the holding page and `/preview/` return `200`
+    live. MX/TXT/`_dmarc` reverified unchanged
+  - Found this file itself was stale in two ways and corrected both: the structural
+    rebuild it described as uncommitted local work was already committed and pushed
+    (`29a482c`, `977a07f`), and the signed agreement's cover page has a filled-in
+    "Hours: 8:00 AM - 6:00PM M-F" field that a boilerplate annotation line right under it
+    contradicted. Sebby confirmed the filled field is the real one; Sat/Sun still open
+  - Read the signed agreement PDF directly (from `../orthoflow-ops/signed/`, never
+    copied into this repo) and the client's design-direction docx directly (converted
+    with `textutil`, read from where it already lived in Messages, never copied in
+    either). Both confirm what `PRIVATE_NOTES.local.md` already had. Two things worth
+    a permanent note: the design-direction doc's reserve-form mockup includes a
+    "surgeon or practice" field, which predates and is superseded by the signed
+    agreement's tighter Section 5.3 field list, don't add it; and the doc's own action
+    items still ask John to confirm fonts and colors in writing, which has not happened,
+    so `styles.css` stays untouched
+  - Drafted "For Surgeons and Practices" page copy into `CONTENT_DECK.md`, which had
+    only ever had an outline there, following the same house rules as the existing
+    Home/About drafts: marked UNAPPROVED, `[FACT NEEDED]` tags left in place, no
+    referral-incentive language, the compliance line untouched and still gated on
+    attorney review. Also corrected two leftover "procedure date" references in the
+    homepage draft that no longer matched the timing-range picklist actually built into
+    the form, and a stale note claiming `main.js` still promises a 24-hour reply, which
+    it no longer does
+  - None of this touched any tracked HTML. Nothing above unblocks copy going into
+    `preview/`, since John still has not approved anything in `CONTENT_DECK.md` line by
+    line, and Section 8 of the signed agreement gates actual launch on that approval
+    plus hero media, independent of the deposit already being paid
