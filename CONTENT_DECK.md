@@ -20,6 +20,23 @@ form. Draft copy for the For Surgeons and Practices page added below, it had bee
 outline only until now. None of this is approved. Every `[FACT NEEDED]` tag below still
 blocks that section from going into the HTML.
 
+**2026-09-08: John answered most of the open facts, in writing (docx via text).** Most
+`[FACT NEEDED]` tags below are now resolved and marked so. Two answers are flagged
+**BLOCKED, NOT USABLE AS WRITTEN** instead of being filled in, both are clinical-claim
+problems under Section 10.3, the same category as the tagline issue, not filled in
+until John and Sebby resolve them:
+- His homepage headline pick, "Better Relief with Personal Support," asserts a medical
+  outcome the same way "Better Recovery" did. Not going in as written.
+- His answer under "Surgeons page headline" is a first-person founder/mission passage
+  addressed to patients, not a headline, and says "KEEP CULTURE PAGE." It also contains
+  a second claim, "pain and swelling more manageable." Reads like it was meant for the
+  About page rather than the surgeons page, and raises whether he wants to revert the
+  agreement's Section 1.1.3 page-3 swap, a scope question, not something to guess at.
+
+Real numbers arrived for the pricing section for the first time, see the homepage draft
+below. They are still John's raw figures, not approved final wording, the phrasing
+below is a draft for him to react to like everything else in this file.
+
 ---
 
 ## Business Basics
@@ -37,8 +54,10 @@ blocks that section from going into the HTML.
 - Service area: **CONFIRMED.** See `PRIVATE_NOTES.local.md` for the exact wording. The
   markup still hardcodes the old, wrong text and needs updating once real copy goes in.
 - Business hours: **Mon-Fri, 8:00 AM to 6:00 PM, confirmed on the signed agreement's
-  cover page (2026-09-05).** Saturday and Sunday still not supplied, ask John directly
-  before filling in the footer's Sat/Sun rows.
+  cover page (2026-09-05).** John confirmed 2026-09-08 there are no weekend deliveries.
+  That answers the delivery-scheduling question, not necessarily whether the phone line
+  itself is closed Sat/Sun, worth a one-line confirmation before the footer's Sat/Sun
+  rows say "Closed" outright.
 - Device line distributed: **NICE** (confirmed 2026-08-26 by the client's own patient
   feedback document, which refers throughout to "the NICE machine"). The specific model
   is still unconfirmed. Do not write "NICE1" until John confirms it.
@@ -68,6 +87,10 @@ blocks that section from going into the HTML.
   recovery" asserts an improved medical outcome, which the no-clinical-claims rule bars
   absent NICE-cleared wording supplied in writing. See "No clinical claims" in
   `CLAUDE.md` and `PRIVATE_NOTES.local.md` for where this stands.
+  **RESOLVED 2026-09-08: John confirmed in writing, remove the tagline from the website
+  for now.** Nothing to draft here, just drop it. He separately asked about removing the
+  tagline from the logo itself, which is a different, unconfirmed question, see
+  `PRIVATE_NOTES.local.md`.
 
 ## Homepage
 
@@ -77,8 +100,9 @@ blocks that section from going into the HTML.
 - Benefit 1 / 2 / 3:
 - Equipment section title and description:
 - Process steps 1 through 4:
-- **Pricing section, all tiers shown together.** Figures not yet supplied. A per-day
-  rate must never be shown alone, see `CLAUDE.md` Architecture.
+- **Pricing section, all tiers shown together.** Figures supplied 2026-09-08, draft
+  wording in the "DRAFT COPY FOR CLIENT REVIEW" section below. A per-day rate must never
+  be shown alone, see `CLAUDE.md` Architecture.
 - Story band headline and paragraph:
 - Reserve section title and instruction line:
 
@@ -163,6 +187,16 @@ until John supplies them.
 - B. Post-op recovery, without the logistics.
 - C. Your recovery equipment, handled start to finish.
 
+**BLOCKED 2026-09-08: John's pick, "Better Relief with Personal Support," is not usable
+as written.** "Better relief" asserts a medical outcome, the exact same problem as the
+"Better Recovery" tagline. Cannot go in without NICE's exact cleared wording in writing,
+per Section 10.3. His intent, relief plus personal, human support, is a fine direction
+for a claim-free rewrite, options to send back to him:
+- D. Comfort and support, delivered to your door.
+- E. Personal support, every step of recovery.
+- F. The comfort of home, with support you can count on.
+Still showing option A below until he picks a claim-free version.
+
 **Hero subheadline**
 > Ortho Flow Recovery brings the NICE1 cold therapy and compression system to your door
 > before surgery, sets it up, and stays with you until it goes back.
@@ -188,11 +222,29 @@ until John supplies them.
    date. **[Matches the reserve form's timing-range picklist: within 2 weeks, 2 to 6
    weeks, 6 or more weeks, or not sure yet. No date field, per the signed agreement's
    HIPAA-shaped form rules, see `CLAUDE.md` Architecture.]**
-2. **We deliver and set up.** **[FACT NEEDED: delivery window. Do not write "24 hours"
-   or "same day" unless John commits to it.]**
-3. **We check in during recovery.** **[FACT NEEDED: cadence. His patient feedback shows
-   he does this, so confirm what he wants to promise.]**
+2. **We deliver and set up.** **RESOLVED 2026-09-08:** deliveries and pickups run
+   Mondays and Thursdays. Draft wording: "Delivery is scheduled around your procedure
+   date, typically the closest Monday or Thursday, with your rental period starting the
+   day of surgery." No exact procedure date is ever collected by the form itself, this
+   sentence describes the general pattern, not a specific appointment.
+3. **We check in during recovery.** **RESOLVED 2026-09-08:** two check-ins during the
+   rental, one the day after surgery, one a few days before the unit is due back. Draft
+   wording: "We check in twice during your rental, the day after your procedure and
+   again as it winds down."
 4. **We collect it.** Arranged around your follow-up appointment.
+
+**Pricing, all tiers together** (Section 1.1 puts this between process steps and reasons
+to choose) **RESOLVED 2026-09-08**, real figures from John, draft wording only:
+- Two-week rental: $25/day, 14-day minimum ($350 total).
+- Longer than two weeks: as low as $150/week after that (never state the underlying
+  $21.43/day figure by itself, the signed agreement bars a lone per-day number since it
+  understates the real cost, always pair it with the 14-day tier like this).
+- Delivery and pickup: included at no extra charge.
+- Fit adjustments or equipment issues during the rental: serviced at no charge.
+- Unit returned, then rental extended: $50 re-delivery fee.
+
+Draft sentence: "Two weeks minimum at $25 a day, delivery and pickup included. Need it
+longer? As low as $150 a week after that. Any fit or equipment issue is serviced free."
 
 **Story band headline:** Built around the part nobody else handles
 > **[FACT NEEDED: John's actual reason for starting this. One short paragraph in his own
@@ -200,26 +252,49 @@ until John supplies them.
 
 **Reserve section title:** Reserve a unit
 **Instruction line:** Tell us your general timeframe and we will confirm availability
-and delivery. **[FACT NEEDED: response time commitment. The success message currently
-promises no specific turnaround, since nobody had agreed to the old "24 hours" wording.
-John can supply a real commitment in writing if he wants one stated.]**
+and delivery. **RESOLVED 2026-09-08:** John commits to same-day response, next business
+day at the latest, by call or text. Draft wording: "We respond the same day, next
+business day at the latest." Still needs wiring into the success message in `main.js`
+once approved, see that file's note about not promising a time nobody agreed to.
 
 ---
 
 ## About Page
 
 **Headline:** About Ortho Flow Recovery
-**Story paragraphs:** **[FACT NEEDED]** Needs John's own account: what he did before,
-why he started this, what he saw patients struggling with. This is the one section that
-cannot be drafted for him without it becoming fiction.
+**Story paragraphs:** **RESOLVED 2026-09-08, John's own words, sent in writing:**
 
-**Stats band, "By the Numbers"**
-> **[FACT NEEDED, and the highest risk section on the site.]** Publishing invented
-> figures about a healthcare business is deceptive advertising. Every number must be one
-> John can substantiate. Reasonable candidates to ask him for: units in service,
-> patients served to date, number of referring practices, average delivery time.
-> **If he does not have real figures, delete this band.** Do not round up, do not
-> estimate, and do not use "hundreds of" as a hedge.
+> OrthoFlow was founded after seeing how difficult the first days and weeks after
+> orthopedic surgery can be, not only for patients, but also for the practices caring
+> for them.
+>
+> Patients often leave surgery facing pain, swelling, limited mobility, and uncertainty
+> about what comes next. Traditional ice can be inconvenient and inconsistent, while
+> purchasing advanced recovery equipment may be impractical. Even when better technology
+> is available, arranging the equipment, learning how to use it, and managing its return
+> can become another burden during an already demanding time.
+>
+> We also saw the challenge from the practice's perspective. Surgeons and their staff
+> want patients to feel supported after they leave the office, but they do not have the
+> time or resources to coordinate equipment deliveries, answer every product question,
+> or manage rental logistics.
+>
+> OrthoFlow was created to help close that gap.
+>
+> We provide advanced cold and compression equipment directly to the patient's home, set
+> it up, explain how it works, and remain available throughout the rental. When the
+> patient is finished, we coordinate the pickup as well. Our goal is to make the entire
+> experience simple for the patient and require as little involvement as possible from
+> the referring practice.
+
+Checked against the no-clinical-claims rule: describes what patients generally face
+after surgery and what OrthoFlow does logistically, does not claim the device itself
+reduces pain, swelling, or recovery time. Reads clean, no changes needed for that rule,
+still needs John's final sign-off as with everything else in this file.
+
+**Stats band, "By the Numbers": RESOLVED 2026-09-08, drop it for now, John's own call.**
+Remove the section from `preview/about.html` entirely rather than leave it empty. This
+matches the fallback this file already recommended when no substantiated figures exist.
 
 **Why-us reasons:** reuse the three service benefits from the homepage, expanded.
 
@@ -239,15 +314,30 @@ verbatim, not be paraphrased or expanded on here.
 - B. A recovery equipment partner your office doesn't have to manage.
 - C. One call away for your post-op patients.
 
+**BLOCKED 2026-09-08: John's answer here was not a headline.** He wrote "KEEP CULTURE
+PAGE" followed by two paragraphs in first person addressed to patients, about
+"modern therapies that can make pain and swelling more manageable," his role, and
+OrthoFlow's culture. Three separate problems, none resolved by guessing:
+1. It reads like About-page mission material, not something addressed to surgeons and
+   practice staff, this page's actual audience.
+2. "KEEP CULTURE PAGE" may mean he wants the old standalone Culture page back instead of
+   this page. That reverses a structural decision the signed agreement already made in
+   Section 1.1.3. A scope question for Sebby and John to settle in writing, not something
+   to build from a one-line aside.
+3. "Pain and swelling more manageable" is a clinical claim, same Section 10.3 problem as
+   the headline and tagline. Would need rewriting even if it does end up on the site.
+Still showing option A below until this is sorted out. See `PRIVATE_NOTES.local.md`.
+
 **Hero subheadline**
 > Ortho Flow Recovery delivers, sets up, and collects post-operative recovery equipment
 > directly with the patient, serving Miami-Dade and Broward, so your office never has to
 > coordinate any of it.
 
 **"What OrthoFlow Handles" section title:** What we handle for your patients
-- Delivery and setup, timed around the patient's own schedule.
-  **[FACT NEEDED: delivery window, same figure as the homepage process steps.]**
-- Check-ins during recovery. **[FACT NEEDED: cadence, same as homepage.]**
+- Delivery and setup, Mondays and Thursdays, scheduled around the procedure date.
+  **RESOLVED 2026-09-08, same figure as the homepage process steps.**
+- Check-ins during recovery, twice per rental. **RESOLVED 2026-09-08, same cadence as
+  homepage.**
 - Pickup once the surgeon clears the patient. No return shipping, nothing for the office
   to track.
 
@@ -257,8 +347,8 @@ verbatim, not be paraphrased or expanded on here.
 - No billing conversations. Patients handle payment directly with us.
 
 **"Referring A Patient" steps, three step-cards**
-1. **Recommend Ortho Flow.** **[FACT NEEDED: confirm whether a referral card or
-   take-home handout exists, or if it's verbal only.]**
+1. **Recommend Ortho Flow.** **RESOLVED 2026-09-08: in-person recommendation only, no
+   card or handout exists.** Draft wording should not promise or depict a card.
 2. **Patient reserves.** They contact us directly with their general timeframe, the same
    non-clinical picklist used on the homepage form.
 3. **We handle the rest.** Delivery, setup, check-ins, and pickup, without involving

@@ -13,3 +13,12 @@ PRIVATE_NOTES.local.md
 # lives in the ops folder outside any repo, never here.
 *.pdf
 *.docx
+
+# Local-only visual mockup of draft copy from CONTENT_DECK.md, rendered into the real
+# page shell so it can be seen and tested in a browser instead of read as a spec. This
+# is NOT the tracked preview/ deliverable and must never be committed: the signed
+# agreement (Section 1.2.3) requires John's written per-line approval before any real
+# copy publishes, and preview/ is the actual client-facing review venue under Section
+# 7.2. draft-preview/ exists only so Sebby can look at layout and mobile behavior with
+# real-shaped text in place of [placeholder], nothing in it is approved.
+draft-preview/
