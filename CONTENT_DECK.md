@@ -76,9 +76,8 @@ question as the tagline and the headline pick, don't place it without asking.
 - Device line distributed: **NICE1** (model confirmed 2026-09-12: NICE's District Sales
   Director sent John a "Website Starter Pack" in response to a request for OrthoFlow
   assets, and the product features PDF in that pack is titled "THE NICE1 COLD PRODUCT
-  FEATURES." The ROCC (NICE palm cooling device) also has a folder in the pack. Whether
-  OrthoFlow carries the ROCC is an open question sent to John 2026-09-12, do not place
-  ROCC anywhere until he confirms.)
+  FEATURES." The ROCC folder is also in the pack but John confirmed 2026-09-12 that
+  OrthoFlow does not carry the ROCC. ROCC assets must not appear on this site.)
 - Manufacturer authorization: **CONFIRMED 2026-09-12.** NICE Marketing Specialist Zach
   Muller wrote: "He's safe to repeat any claims made on our site or in our
   documentation. He is not, however, at liberty to modify or create any claims regarding
@@ -477,10 +476,11 @@ Note: this claim IS authorized verbatim. It cannot be softened to "may help redu
 strengthened to "eliminates opioids" or paraphrased in any way. Use the exact wording or
 omit it entirely.
 
-**Wraps available (from Dropbox starter pack, not the PDF):**
+**Wraps available for NICE1 (from Dropbox starter pack, not the PDF):**
 Ankle, Amputee, Butterfly, Elbow, Hand, Hip, Knee, Knee-Articulating, Lumbar, Mitt,
-Shoulder, Total Shoulder, Upper Cervical, Wrist. John should confirm which OrthoFlow
-stocks before any wrap list goes on the site.
+Shoulder, Total Shoulder, Upper Cervical, Wrist. These are NICE's full wrap lineup.
+John should confirm which OrthoFlow actually stocks before any wrap list goes on the site.
+ROCC confirmed not carried by OrthoFlow (2026-09-12), so ROCC-specific wraps are excluded.
 
 **John's positioning line (unlabeled, sent 2026-09-09), now cross-referenced:**
 > "focused on bringing modern non-opioid recovery therapies directly to patients"
