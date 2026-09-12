@@ -77,10 +77,16 @@
 
     <main id="main">
       <!-- Hero Section -->
-      <!-- TODO: Add hero media to assets/ and restore a <video> or <img> layer.
-           Until then .hero carries an explicit charcoal background so the
-           white hero text stays readable. Do not remove that background. -->
       <section class="hero">
+        <!-- NICE1 hero image. Authorized 2026-09-12 via NICE Website Starter Pack.
+             Verbatim claims only on this site, per Zach Muller / NICE Marketing. -->
+        <img
+          src="../assets/nice1-hero.webp"
+          alt="NICE1 cold and compression recovery system in use"
+          class="hero-video"
+          loading="eager"
+          fetchpriority="high"
+        />
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
@@ -120,18 +126,22 @@
       </section>
 
       <!-- Product / Equipment -->
-      <!-- TODO: Confirm which device line Ortho Flow distributes before writing this.
-           Do NOT assume the NICE1. That is Elite Care's product line. -->
+      <!-- NICE1 confirmed 2026-09-12. Claims are verbatim from NICE documentation only. -->
       <section class="bg-cream-alt">
         <div class="container">
           <div class="split-50-50">
             <div>
               <div class="eyebrow">The Equipment</div>
               <h2>[Product section title placeholder]</h2>
-              <p>[Product description placeholder. Awaiting confirmation of the device line.]</p>
+              <p>[Product description placeholder. Awaiting approved copy from CONTENT_DECK.md.]</p>
             </div>
-            <div class="image-placeholder">
-              <p>Placeholder: 800x600, "Product photo, awaiting client asset"</p>
+            <div>
+              <img
+                src="../assets/nice1-product.webp"
+                alt="NICE1 cold and compression therapy system"
+                style="width:100%;border-radius:8px;"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -185,10 +195,9 @@
           <p>[Short instruction line placeholder.]</p>
           <p class="form-notice">Please do not include medical information in this form. We will contact you to discuss any specifics by phone.</p>
 
-          <!-- TODO: Create a NEW Formspree form for Ortho Flow and paste its ID below.
-               Never reuse the Elite Care Recovery form ID. Doing so routes Ortho Flow
-               leads into Elite Care's inbox. -->
-          <form action="https://formspree.io/f/REPLACE_WITH_ORTHO_FLOW_FORM_ID" method="POST">
+          <!-- Patient rental form. Endpoint supplied by John, 2026-09-09, in his own
+               Formspree account per Section 5.3, not the Elite Care Recovery form. -->
+          <form action="https://formspree.io/f/mjyvjwlq" method="POST">
             <div class="form-group">
               <label for="name">Full Name</label>
               <input type="text" id="name" name="name" required />

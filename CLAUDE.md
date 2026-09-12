@@ -77,8 +77,8 @@ curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com/preview/ 
 | Contact phone | **Both gates cleared this session.** Live on the root holding page as a real `tel:` link. See `PRIVATE_NOTES.local.md` for the number itself, this file does not restate it |
 | Service area | **Confirmed**, and live on the root holding page. See `PRIVATE_NOTES.local.md` for the exact wording used elsewhere |
 | Business hours | **Mon-Fri 8:00 AM to 6:00 PM confirmed** off the signed agreement's cover page, 2026-09-05. Sat/Sun still not supplied |
-| Enquiry forms | **Scaffolded this session, not wired, both under `preview/`.** Home's reserve form now uses a timing-range picklist instead of a procedure-date field, and the free-text notes field was removed. The new practice form on `preview/surgeons.html` collects name/phone/email only. Both show the required medical-information notice. Neither has a real Formspree endpoint yet |
-| Formspree form | **Deliberately unwired.** `REPLACE_WITH_ORTHO_FLOW_FORM_ID` (reserve) and `REPLACE_WITH_ORTHO_FLOW_PRACTICE_FORM_ID` (practice), one endpoint needed per form |
+| Enquiry forms | **Field-restricted, both wired to real endpoints as of 2026-09-09.** Home's reserve form uses a timing-range picklist instead of a procedure-date field, and the free-text notes field was removed. The practice form on `preview/surgeons.html` collects name/phone/email only. Both show the required medical-information notice |
+| Formspree form | **Wired 2026-09-09.** `mjyvjwlq` (reserve, patient rental) and `xaeyaokw` (practice, physician request), both supplied by John in his own account. Not yet end-to-end tested with a real submission |
 | Product / device line | NICE, confirmed. Exact model and manufacturer photography rights still open |
 | Search indexing | `noindex, nofollow` on all three `preview/` pages. **The root holding page deliberately has no `noindex`**, see Architecture. Remove `preview/`'s `noindex` at launch |
 | Domain / DNS / Pages | GitHub Pages LIVE and built. **DNS wiring is DONE and verified live**: A/AAAA fully resolve, HTTPS cert covers both apex and `www`, holding page and `/preview/` both return 200 on the custom domain, see "DNS and Deploy." The domain also carries live Microsoft 365 business email, confirmed by zone screenshot and re-verified unchanged by `dig` this session, not to be touched |
@@ -154,7 +154,6 @@ Do not start these, and do not invent content to unblock them:
 - Publishing the client's street address, ever, absent his written instruction
 - Saturday/Sunday hours (weekdays now confirmed, see Session Bootstrap), exact device
   model
-- Formspree form creation and IDs for either enquiry form
 - Hero photo or video
 - Any change to `styles.css` fonts or color tokens, pending written confirmation
 - The Patient Brokering Act compliance line on page 3, without a healthcare attorney's
@@ -199,8 +198,9 @@ below is forbidden to carry across:
 - **Never copy the sibling client's prose.** Their homepage story describes a shared
   family business. It cannot be reused to describe this separate company.
 - **Never reuse the Elite Care Formspree ID (`xeedwqvp`).** It routes leads into Elite
-  Care's inbox. Ortho Flow needs its own form, for each of its two enquiry forms. The
-  placeholder in `preview/index.html` is `REPLACE_WITH_ORTHO_FLOW_FORM_ID`.
+  Care's inbox. Ortho Flow has its own, wired 2026-09-09: `mjyvjwlq` on `preview/index.html`
+  (patient rental) and `xaeyaokw` on `preview/surgeons.html` (physician request), both
+  in John's own account.
 - **Never reuse an Elite Care phone number** or any `@elitecarerecovery.net` address.
   The specific numbers live in `PRIVATE_NOTES.local.md`, which is gitignored. Do not
   write client contact details into any tracked file. See "This repo is public" below.
@@ -237,7 +237,8 @@ must be readable by any web dev.
   direction proposes Poppins + Source Sans 3 instead, not yet confirmed in writing.**
   Do not swap fonts on the strength of that document alone, see Architecture
 - Inline SVG icons only
-- Form: Formspree (free tier), IDs not yet provisioned for either enquiry form
+- Form: Formspree (free tier), both IDs wired 2026-09-09, see "Enquiry forms" under
+  Architecture
 
 ---
 
@@ -353,9 +354,10 @@ anywhere else on this page either.
 
 **Structure is done, content is not.** The page exists under `preview/`, the
 nav/mobile-menu/footer edits landed in all three `preview/` files, and the Commands
-sweeps were updated to reference `preview/surgeons.html`. What's still missing: real
-copy (gated on facts from the client), the compliance line (gated on attorney review),
-and the practice form's Formspree endpoint.
+sweeps were updated to reference `preview/surgeons.html`. The practice form's Formspree
+endpoint is wired as of 2026-09-09. What's still missing: real copy (gated on facts from
+the client, most now supplied, see Session Bootstrap) and the compliance line (gated on
+attorney review).
 
 ### Enquiry forms: two now, both field-restricted, both scaffolded
 
@@ -379,10 +381,10 @@ that spec:
   would collect PHI is out of scope of the current agreement and needs a separate
   written change order first.
 
-Each form still needs its own Formspree endpoint, in the client's own account, per the
-existing rule that the client owns every enquiry. The reserve form's placeholder is
-`REPLACE_WITH_ORTHO_FLOW_FORM_ID`, the practice form's is
-`REPLACE_WITH_ORTHO_FLOW_PRACTICE_FORM_ID`. Never reuse one for the other.
+Each form has its own Formspree endpoint, in the client's own account, per the existing
+rule that the client owns every enquiry. Wired 2026-09-09: the reserve form uses
+`mjyvjwlq`, the practice form uses `xaeyaokw`. Not the same ID, and not tested with a
+real submission yet.
 
 ### The nav, mobile menu, and footer are copy-pasted into all three pages
 
@@ -463,9 +465,12 @@ Three things that surprise people:
    form and the practice form live on different pages (Home and the surgeons page), and
    each page's DOM has exactly one form. It would only become a real gap if a second
    form ever landed on the same page as an existing one. It also `preventDefault()`s
-   unconditionally, so while a Formspree ID is still a `REPLACE_WITH_...` placeholder,
-   every submit lands in the catch branch and shows the error state. That is the
-   expected behavior right now, not a bug to chase.
+   unconditionally. **Both Formspree IDs are real now (2026-09-09, John's own account,
+   `mjyvjwlq` reserve, `xaeyaokw` practice), so a submit should actually post and show
+   the success state.** Not yet tested end to end, do a real test submission on each
+   form before relying on this. Formspree also commonly requires confirming a brand new
+   form on its first submission (a confirmation email to the account owner), so the
+   very first test may need John to click that before it fully activates.
 3. **`setActiveNavLink()` only touches `.nav-links a`.** The `.mobile-menu` links never
    receive `.active`, so the mobile overlay shows no current-page indicator.
 
@@ -613,7 +618,8 @@ gh api repos/SebbyServices/OrthoFlowRecovery/pages --jq '.https_certificate.doma
 - [ ] Resolve every `[FACT NEEDED]` tag in the content deck. Do not guess at these
 - [ ] Verify the phone number's business-listing gate, see `PRIVATE_NOTES.local.md`
 - [ ] Business hours: Sat/Sun still open (Mon-Fri 8am-6pm confirmed 2026-09-05)
-- [ ] Create both Formspree forms and wire the real IDs, once page 3 exists
+- [x] Create both Formspree forms and wire the real IDs, done 2026-09-09
+      (`mjyvjwlq` reserve, `xaeyaokw` practice), not yet tested with a real submission
 - [ ] Update `main.js`'s form handler to support two forms, not `querySelector('form')`
 - [ ] Hero photo or video
 - [ ] Social handles, then restore the footer social icons

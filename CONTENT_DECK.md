@@ -37,6 +37,21 @@ Real numbers arrived for the pricing section for the first time, see the homepag
 below. They are still John's raw figures, not approved final wording, the phrasing
 below is a draft for him to react to like everything else in this file.
 
+**2026-09-09: Formspree endpoints supplied and wired**, `mjyvjwlq` (patient rental,
+reserve form) and `xaeyaokw` (physician request, practice form), both in John's own
+account per Section 5.3. Not yet tested with a real submission.
+
+**2026-09-09: John also sent an unlabeled positioning line, not yet placed anywhere:**
+> "Ortho Flow is building a high-service orthopedic recovery platform for South Florida,
+> focused on bringing modern non-opioid recovery therapies directly to patients while
+> reducing the operational burden on surgical practices."
+
+Two open questions before this goes anywhere: where does he want it, meta description,
+hero subheadline, About page opener, something else entirely, and "non-opioid recovery
+therapies" sits close to the "medication use" claim category Section 10.3 names
+explicitly. It may be a fair category description rather than an outcome claim, same
+question as the tagline and the headline pick, don't place it without asking.
+
 ---
 
 ## Business Basics
@@ -58,11 +73,22 @@ below is a draft for him to react to like everything else in this file.
   That answers the delivery-scheduling question, not necessarily whether the phone line
   itself is closed Sat/Sun, worth a one-line confirmation before the footer's Sat/Sun
   rows say "Closed" outright.
-- Device line distributed: **NICE** (confirmed 2026-08-26 by the client's own patient
-  feedback document, which refers throughout to "the NICE machine"). The specific model
-  is still unconfirmed. Do not write "NICE1" until John confirms it.
-- Manufacturer attribution required: unconfirmed. Ask what NICE requires for logo use,
-  product photography, and permitted claims.
+- Device line distributed: **NICE1** (model confirmed 2026-09-12: NICE's District Sales
+  Director sent John a "Website Starter Pack" in response to a request for OrthoFlow
+  assets, and the product features PDF in that pack is titled "THE NICE1 COLD PRODUCT
+  FEATURES." The ROCC (NICE palm cooling device) also has a folder in the pack. Whether
+  OrthoFlow carries the ROCC is an open question sent to John 2026-09-12, do not place
+  ROCC anywhere until he confirms.)
+- Manufacturer authorization: **CONFIRMED 2026-09-12.** NICE Marketing Specialist Zach
+  Muller wrote: "He's safe to repeat any claims made on our site or in our
+  documentation. He is not, however, at liberty to modify or create any claims regarding
+  the NICE1. We can be held liable if he does." Assets supplied via a Dropbox starter
+  pack (see `orthoflow-ops/nice-assets/`). Rules for the site:
+  - Verbatim quotes from getnice.com or NICE documentation: allowed.
+  - Paraphrased, softened, inferred, or modified claims: NOT allowed.
+  - New claims not traceable to NICE's own published material: NOT allowed.
+  - This applies to every claim about the device: cold therapy, compression,
+    pain, swelling, edema, ROM, medication, opioids, healing, or recovery speed.
 
 > This file is tracked in a public repo. Contact details and anything from a document a
 > client marked private belong in `PRIVATE_NOTES.local.md`, which is gitignored.
@@ -404,10 +430,72 @@ equipment ourselves.
 
 ---
 
+## NICE1 Authorized Claims and Product Facts
+
+Source: `NICE_ProductFeatures_Updated11-19-25.pdf`, supplied by NICE Marketing Specialist
+Zach Muller 2026-09-10. All text below is verbatim from that document and may be used
+on the site as-is. Do not paraphrase. If it needs to be shorter, cut; do not rewrite.
+
+**Device identity**
+- Full name: NICE1 Cold Recovery System
+- Made in Boulder, Colorado, USA
+- Manufacturer: NICE Recovery System, LLC
+- Size: 8 x 8 x 8 inches
+- Weight: 9 lbs
+- Interface: touch-control display screen
+
+**Opening description (verbatim from PDF):**
+> NICE uses advanced technology to greatly improve the convenience of cold + compression
+> therapy. NICE eliminates inconvenience by delivering precise cold therapy without the
+> need for ice. The programmable pneumatic compression is proven to reduce edema and
+> speed recovery. NICE integrates these highly effective therapies in a small (8x8x8
+> inches) and lightweight (9lb) package with an easy-to-use touch screen interface.
+
+**Key features (verbatim from PDF):**
+- "NICE patients do not need to place ice into the unit."
+- "No need to add water! Patients do not have to worry about adding water to the unit
+  once technician sets up the unit"
+- "Allows for consistent temperature control ranging from 42F to 58F"
+- "Easy to use 'touch control' display screen that allows for easy and immediate control
+  of cold and compression levels"
+- "Allows for timed programmability and overnight utilization"
+- "Form-fitting wraps designed specifically for each joint"
+
+**NICE benefits (verbatim from PDF):**
+- "Compliance - patient much more compliant when no ice/water required."
+- "Promote Faster Healing - decrease edema, improve lymphatic drainage, improved ROM"
+- "Mobility - NICE unit easier to transport sized at 8x8x8 & weighs 9 lbs"
+- "Temperature Control - allows for personal preference on temperature settings since
+  patients have different sensitivity to cold therapy"
+- "Safety Feature - NO Thermal damage since unit cannot go below 42F"
+- "Personal Settings - pre-set programming for 'quick start' and overnight sessions"
+
+**Opioids claim (verbatim from PDF, under "Opioids Reduction" header):**
+- "Immediate pain relief, reduce pain medication intake."
+
+Note: this claim IS authorized verbatim. It cannot be softened to "may help reduce" or
+strengthened to "eliminates opioids" or paraphrased in any way. Use the exact wording or
+omit it entirely.
+
+**Wraps available (from Dropbox starter pack, not the PDF):**
+Ankle, Amputee, Butterfly, Elbow, Hand, Hip, Knee, Knee-Articulating, Lumbar, Mitt,
+Shoulder, Total Shoulder, Upper Cervical, Wrist. John should confirm which OrthoFlow
+stocks before any wrap list goes on the site.
+
+**John's positioning line (unlabeled, sent 2026-09-09), now cross-referenced:**
+> "focused on bringing modern non-opioid recovery therapies directly to patients"
+
+The PDF's "Opioids Reduction" header gives this a factual basis in NICE's own
+documentation. The phrase "non-opioid recovery therapies" reads as a category description,
+not an outcome claim, and the PDF supports it. Still needs John's sign-off on placement.
+
+---
+
 ## Claims and compliance checklist, before any of this goes live
 
 - [ ] Every **[FACT NEEDED]** above resolved by John in writing
-- [ ] Device description wording cleared against NICE's approved dealer language
+- [x] Device description wording cleared against NICE's approved dealer language
+      (2026-09-12: Zach Muller confirmed verbatim-from-NICE is allowed, no modifications)
 - [ ] No clinical outcome claims anywhere in the final copy
 - [ ] Delivery, response, and pickup promises match what the business will actually do
 - [ ] Stats band either populated with substantiated figures or removed entirely
