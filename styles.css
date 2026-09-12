@@ -1170,6 +1170,17 @@ footer {
   margin-bottom: 0;
 }
 
+.footer-credit a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+}
+
 /* Social icons */
 .social-icons {
   display: flex;
