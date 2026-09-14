@@ -115,10 +115,10 @@ if (form) {
         submitBtn.textContent = '✓ Sent!';
 
         if (formStatus) {
-          /* No response-time promise until the client commits to one in writing.
-             The previous copy promised 24 hours, which nobody had agreed to. */
+          /* Response-time confirmed by John Pierce 2026-09-14:
+             same day or next business day, by call or text. */
           formStatus.textContent =
-            'Thanks for reaching out. We have your request and will be in touch.';
+            'We received your request. We respond the same day, or the next business day at the latest, by call or text.';
           formStatus.classList.add('show', 'success');
         }
 
