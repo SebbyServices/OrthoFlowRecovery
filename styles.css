@@ -35,6 +35,10 @@ body {
   color: var(--color-charcoal);
 }
 
+p + p {
+  margin-top: 1em;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -1103,11 +1107,11 @@ footer {
 }
 
 .footer-column a {
-  color: var(--color-gold);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .footer-column a:hover {
-  color: rgba(184, 150, 90, 0.8);
+  color: rgba(255, 255, 255, 1);
 }
 
 .footer-logo {
