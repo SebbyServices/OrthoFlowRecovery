@@ -1126,7 +1126,7 @@ form button {
 footer {
   background-color: var(--color-charcoal);
   color: white;
-  padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem 2rem;
 }
 
 .footer-top {
@@ -1242,7 +1242,7 @@ footer {
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
 }
 
 .social-icons a {
