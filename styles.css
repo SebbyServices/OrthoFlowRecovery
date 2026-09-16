@@ -181,7 +181,7 @@ section.bg-charcoal .eyebrow {
   color: var(--color-gold);
 }
 
-/* Headings explicitly set color: charcoal — override for dark sections.
+/* Headings explicitly set color: charcoal; override for dark sections.
    Targets only h1/h2 (section-level) not h3 (card headings on cream cards). */
 section.bg-charcoal h1,
 section.bg-charcoal h2 {
