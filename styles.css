@@ -82,6 +82,12 @@ h3 {
   font-size: 1.5rem;
 }
 
+/* Section headings need breathing room before the content that follows */
+section h1,
+section h2 {
+  margin-bottom: 1.5rem;
+}
+
 /* Eyebrow pattern: uppercase label before section headline */
 .eyebrow {
   font-family: 'Inter', sans-serif;
@@ -631,6 +637,25 @@ button,
    Cards
    ============================================================================ */
 
+/* Card grid: responsive layout for .card and .step-card collections */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
 .card {
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -642,6 +667,10 @@ button,
 
 .card:hover {
   box-shadow: 0 4px 12px var(--color-shadow);
+}
+
+.card h3 {
+  margin-bottom: 0.75rem;
 }
 
 .card-title {
