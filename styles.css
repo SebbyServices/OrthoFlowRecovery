@@ -1199,7 +1199,7 @@ footer {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.35rem;
 }
 
 .quick-links a {
