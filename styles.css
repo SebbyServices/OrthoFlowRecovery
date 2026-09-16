@@ -685,6 +685,12 @@ button,
   margin-bottom: 0.75rem;
 }
 
+/* Cards reset background to cream but text color inherits from the
+   section. Explicitly set so cards read dark on any section background. */
+.card p {
+  color: var(--color-charcoal-soft);
+}
+
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
