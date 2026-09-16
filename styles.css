@@ -39,6 +39,11 @@ p + p {
   margin-top: 1em;
 }
 
+p + .btn {
+  margin-top: 1.75rem;
+  display: inline-block;
+}
+
 html {
   scroll-behavior: smooth;
 }
