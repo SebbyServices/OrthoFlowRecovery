@@ -737,6 +737,26 @@ button,
   line-height: 1.65;
 }
 
+/* Review cards */
+.review-stars {
+  color: var(--color-gold);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.review-quote {
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.review-name {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.65;
+  font-weight: 500;
+}
+
 /* Benefits grid */
 .benefits-grid {
   display: grid;
