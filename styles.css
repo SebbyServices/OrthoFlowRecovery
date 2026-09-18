@@ -520,7 +520,7 @@ nav .btn-nav:focus {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 65% center;
+  object-position: 40% center;
   z-index: 0;
 }
 
