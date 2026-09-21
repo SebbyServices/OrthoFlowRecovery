@@ -410,6 +410,16 @@ nav .btn-nav:focus {
   padding: 1rem 2rem;
 }
 
+.mobile-menu .btn {
+  color: white;
+}
+
+.mobile-menu .lang-switcher a,
+.mobile-menu .lang-switcher span {
+  padding: 0;
+  font-size: 0.8rem;
+}
+
 /* Mobile menu header */
 .mobile-menu-header {
   display: flex;
