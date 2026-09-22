@@ -300,6 +300,21 @@ nav.scrolled {
 }
 
 /* Reserve Now button in nav */
+/* Nav actions: lang-switcher + reserve button grouped at the right */
+.nav-actions {
+  display: none;
+  position: absolute;
+  right: 1.5rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .nav-actions {
+    display: flex;
+  }
+}
+
 nav .btn-nav {
   background-color: var(--color-accent);
   color: white;
@@ -311,14 +326,6 @@ nav .btn-nav {
   white-space: nowrap;
   line-height: 1;
   display: inline-block;
-  position: absolute;
-  right: 1.5rem;
-}
-
-@media (max-width: 1023px) {
-  nav .btn-nav {
-    display: none;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -503,7 +510,6 @@ nav .btn-nav:focus {
 @media (min-width: 1024px) {
   nav .lang-switcher {
     display: flex;
-    margin-left: 1.5rem;
   }
 }
 
@@ -825,6 +831,15 @@ button,
   font-size: 0.85rem;
   opacity: 0.65;
   font-weight: 500;
+}
+
+.equipment-tags {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.25rem;
 }
 
 /* Benefits grid */
