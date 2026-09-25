@@ -1275,6 +1275,18 @@ footer {
   color: rgba(255, 255, 255, 1);
 }
 
+a[href^="tel:"],
+a[href^="mailto:"] {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+a[href^="tel:"]:hover,
+a[href^="mailto:"]:hover {
+  text-decoration-thickness: 2px;
+}
+
 .footer-logo {
   width: 190px;
   height: auto;
