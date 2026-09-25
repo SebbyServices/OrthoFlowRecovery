@@ -338,6 +338,7 @@ nav .btn-nav {
 nav .btn-nav:hover,
 nav .btn-nav:focus {
   background-color: var(--color-accent-dark);
+  color: white;
 }
 
 /* Hamburger menu (mobile) */
@@ -684,6 +685,7 @@ button,
 .btn-primary:hover,
 .btn-primary:focus {
   background-color: var(--color-accent-dark);
+  color: white;
   outline: none;
 }
 
@@ -696,6 +698,7 @@ button,
 .btn-ghost:hover,
 .btn-ghost:focus {
   background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .btn-white {
@@ -707,6 +710,7 @@ button,
 .btn-white:hover,
 .btn-white:focus {
   background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-accent);
 }
 
 .btn-full {
