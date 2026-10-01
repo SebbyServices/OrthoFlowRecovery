@@ -1106,6 +1106,42 @@ form button {
   }
 }
 
+/* SMS consent row. The global label and input rules are built for text fields
+   (uppercase labels, padded inputs), so the consent sentence resets both. */
+.form-consent {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.form-consent input[type='checkbox'] {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.2rem;
+  padding: 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.form-consent label {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.55;
+  color: var(--color-charcoal-soft);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.form-consent-links {
+  font-size: 0.9375rem;
+  color: var(--color-charcoal-soft);
+  margin-top: 0.4rem;
+}
+
 /* Form success/sending states */
 .form-status {
   margin-top: 1.5rem;

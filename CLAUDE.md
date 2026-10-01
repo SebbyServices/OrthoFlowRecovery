@@ -94,7 +94,7 @@ Three flat pages under `preview/` sharing root `styles.css` and `main.js` (via `
 **Page 3 (`surgeons.html`):** Audience is surgeons, practice managers, coordinators, ASC/discharge staff. Compliance-note section requires a healthcare attorney's review before any wording goes in. No referral-incentive language anywhere on this page.
 
 **Enquiry forms (Section 5.3 of signed agreement):**
-- Reserve form fields: name, phone, email, timing-range `<select>` only ("within 2 weeks", "2 to 6 weeks", "6 or more weeks", "not sure yet").
+- Reserve form fields: name, phone, email, timing-range `<select>` only ("within 2 weeks", "2 to 6 weeks", "6 or more weeks", "not sure yet"). Plus one optional, unchecked SMS consent checkbox (`sms_consent`), added 2026-09-30 at John's written request for Spruce Health carrier registration. It links to `sms-terms.html` and `sms-privacy.html`; keep both pages live and the wording verbatim.
 - Practice form fields: name, phone, email only.
 - Never add: free-text medical field, surgery date, symptom/diagnosis, insurance, or any field that reveals a health event about a named person.
 - Both show `.form-notice`: "Please do not include medical information in this form. We will contact you to discuss any specifics by phone."
