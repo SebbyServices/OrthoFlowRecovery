@@ -1157,6 +1157,62 @@ form button {
   margin-top: 0.4rem;
 }
 
+/* First and last name share a row once there is room for both. */
+@media (min-width: 640px) {
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+  }
+}
+
+/* Contact-preference radios. The legend mirrors the global label style; the
+   option labels reset it the same way .form-consent does. */
+.form-choices {
+  border: 0;
+  padding: 0;
+  margin-inline: 0;
+  min-width: 0;
+}
+
+.form-choices legend {
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.form-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+}
+
+.form-choice input[type='radio'] {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
+.form-choice label {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-charcoal-soft);
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
 /* Form success/sending states */
 .form-status {
   margin-top: 1.5rem;

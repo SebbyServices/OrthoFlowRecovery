@@ -95,6 +95,8 @@ Three flat pages under `preview/` sharing root `styles.css` and `main.js` (via `
 
 **Enquiry forms (Section 5.3 of signed agreement):**
 - Reserve form fields: name, phone, email, timing-range `<select>` only ("within 2 weeks", "2 to 6 weeks", "6 or more weeks", "not sure yet"). Plus one optional, unchecked SMS consent checkbox (`sms_consent`), added 2026-09-30 at John's written request for Spruce Health carrier registration. It links to `sms-terms.html` and `sms-privacy.html`; keep both pages live and the wording verbatim.
+- 2026-09-30, at Sebby's request (modeled on NICE's intake form): name split into `first_name`/`last_name`, plus required `zip` (5 digits, no State field because the service area is all Florida) and required `contact_preference` radios (phone/text/email). None of these are PHI. They go beyond the 5.3 list, so get John's written OK before relying on them. Picking "text" is not SMS consent; only `sms_consent` is.
+- NICE's form also asks for physician name, body part, surgery date, coverage program (student athlete, workers' comp, VA/DoD/military), and free-text comments. These stay off this site: 5.3 bans them and Formspree has no BAA. See the coverage-interest plan in memory before reopening this.
 - Practice form fields: name, phone, email only.
 - Never add: free-text medical field, surgery date, symptom/diagnosis, insurance, or any field that reveals a health event about a named person.
 - Both show `.form-notice`: "Please do not include medical information in this form. We will contact you to discuss any specifics by phone."

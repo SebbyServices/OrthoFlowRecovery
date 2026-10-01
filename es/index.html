@@ -30,7 +30,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../styles.css?v=20260930" />
+    <link rel="stylesheet" href="../styles.css?v=20260930b" />
   </head>
 
   <body>
@@ -203,7 +203,8 @@
         </div>
       </section>
 
-      <!-- Reserve form. Field set is a signed contractual constraint. -->
+      <!-- Reserve form. Field set is a signed contractual constraint. Same fields as
+           the English form; see the comment there for what is excluded and why. -->
       <section id="reserve" class="bg-cream-alt">
         <div class="container">
           <div class="eyebrow">Reservar Ahora</div>
@@ -213,8 +214,9 @@
 
           <!-- Patient rental form. Formspree endpoint per Section 5.3 of signed agreement. -->
           <form action="https://formspree.io/f/mjyvjwlq" method="POST">
-            <div class="form-group">
-              <label for="first-name">Nombre</label>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">Nombre</label>
                 <input type="text" id="first-name" name="first_name" autocomplete="given-name" required />
               </div>
               <div class="form-group">
