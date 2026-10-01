@@ -30,7 +30,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../styles.css?v=20260930b" />
+    <link rel="stylesheet" href="../styles.css?v=20260930c" />
   </head>
 
   <body>
@@ -161,15 +161,15 @@
           <!-- Practice form. Formspree endpoint per Section 5.3, John's account. -->
           <form action="https://formspree.io/f/xaeyaokw" method="POST">
             <div class="form-group">
-              <label for="practice-name">Nombre Completo</label>
+              <label for="practice-name">Nombre Completo<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="text" id="practice-name" name="name" required />
             </div>
             <div class="form-group">
-              <label for="practice-phone">Teléfono</label>
+              <label for="practice-phone">Teléfono<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="tel" id="practice-phone" name="phone" required />
             </div>
             <div class="form-group">
-              <label for="practice-email">Correo Electrónico</label>
+              <label for="practice-email">Correo Electrónico<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="email" id="practice-email" name="email" required />
             </div>
             <button type="submit" class="btn btn-primary">Solicitar Información</button>

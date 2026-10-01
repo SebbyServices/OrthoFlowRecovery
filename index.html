@@ -26,7 +26,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=20260930b" />
+    <link rel="stylesheet" href="styles.css?v=20260930c" />
   </head>
 
   <body>
@@ -228,30 +228,30 @@
           <form action="https://formspree.io/f/mjyvjwlq" method="POST">
             <div class="form-row">
               <div class="form-group">
-                <label for="first-name">First Name</label>
+                <label for="first-name">First Name<span class="required-mark" aria-hidden="true">*</span></label>
                 <input type="text" id="first-name" name="first_name" autocomplete="given-name" required />
               </div>
               <div class="form-group">
-                <label for="last-name">Last Name</label>
+                <label for="last-name">Last Name<span class="required-mark" aria-hidden="true">*</span></label>
                 <input type="text" id="last-name" name="last_name" autocomplete="family-name" required />
               </div>
             </div>
             <div class="form-group">
-              <label for="phone">Phone</label>
+              <label for="phone">Phone<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="tel" id="phone" name="phone" required />
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email">Email<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="email" id="email" name="email" required />
             </div>
             <!-- ZIP lets John check the Miami-Dade/Broward service area before calling.
                  No State field: every serviceable ZIP is in Florida. -->
             <div class="form-group">
-              <label for="zip">ZIP Code</label>
+              <label for="zip">ZIP Code<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="text" id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" title="5-digit ZIP code" required />
             </div>
             <div class="form-group">
-              <label for="timing">When Do You Need Equipment?</label>
+              <label for="timing">When Do You Need Equipment?<span class="required-mark" aria-hidden="true">*</span></label>
               <select id="timing" name="timing" required>
                 <option value="" disabled selected>Select a timeframe</option>
                 <option value="within-2-weeks">Within 2 weeks</option>
@@ -262,7 +262,7 @@
             </div>
             <!-- Radios, not checkboxes, so `required` works natively with no JS. -->
             <fieldset class="form-group form-choices">
-              <legend>How Would You Like to Be Contacted?</legend>
+              <legend>How Would You Like to Be Contacted?<span class="required-mark" aria-hidden="true">*</span></legend>
               <div class="form-choice">
                 <input type="radio" id="contact-phone" name="contact_preference" value="phone" required />
                 <label for="contact-phone">Phone call</label>
@@ -284,7 +284,7 @@
             <div class="form-group form-consent">
               <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" required />
               <div>
-                <label for="sms-consent">I agree to receive service-related text messages from Ortho Flow Recovery LLC regarding scheduling, delivery, rentals, follow-ups, billing, extensions, and pickup. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for assistance.</label>
+                <label for="sms-consent">I agree to receive service-related text messages from Ortho Flow Recovery LLC regarding scheduling, delivery, rentals, follow-ups, billing, extensions, and pickup. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for assistance.<span class="required-mark" aria-hidden="true">*</span></label>
                 <p class="form-consent-links">Read our <a href="sms-terms.html">SMS Terms</a> and <a href="sms-privacy.html">SMS Privacy Policy</a>.</p>
               </div>
             </div>

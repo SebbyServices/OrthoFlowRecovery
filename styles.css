@@ -19,6 +19,9 @@
   --color-slate: #5C646F;
   --color-gold: #B8965A;
   --color-border: #E5DFD3;
+  /* Required-field asterisk. Deeper than the #d32f2f invalid border because the
+     asterisk is text: 5.61:1 on cream-alt, where #d32f2f is only 4.27:1. */
+  --color-required: #B3261E;
   --color-shadow: rgba(26, 26, 26, 0.08);
 }
 
@@ -1155,6 +1158,13 @@ form button {
   font-size: 0.9375rem;
   color: var(--color-charcoal-soft);
   margin-top: 0.4rem;
+}
+
+/* Red asterisk on every required field. aria-hidden because the `required`
+   attribute already tells screen readers. */
+.required-mark {
+  color: var(--color-required);
+  margin-left: 0.15em;
 }
 
 /* First and last name share a row once there is room for both. */

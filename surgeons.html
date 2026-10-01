@@ -26,7 +26,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=20260930b" />
+    <link rel="stylesheet" href="styles.css?v=20260930c" />
   </head>
 
   <body>
@@ -179,15 +179,15 @@
                Formspree account per Section 5.3, separate from the patient rental form. -->
           <form action="https://formspree.io/f/xaeyaokw" method="POST">
             <div class="form-group">
-              <label for="practice-name">Full Name</label>
+              <label for="practice-name">Full Name<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="text" id="practice-name" name="name" required />
             </div>
             <div class="form-group">
-              <label for="practice-phone">Phone</label>
+              <label for="practice-phone">Phone<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="tel" id="practice-phone" name="phone" required />
             </div>
             <div class="form-group">
-              <label for="practice-email">Email</label>
+              <label for="practice-email">Email<span class="required-mark" aria-hidden="true">*</span></label>
               <input type="email" id="practice-email" name="email" required />
             </div>
             <button type="submit" class="btn btn-primary">Request Information</button>
