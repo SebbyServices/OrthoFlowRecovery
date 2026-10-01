@@ -7,26 +7,36 @@ See [CHANGELOG.md](CHANGELOG.md) for full session history.
 
 ## Bootstrap
 
-**State as of 2026-09-12:** Agreement signed and paid. Three-page build lives under `preview/`; repo root `index.html` is the Section 2 holding page. DNS live. NICE1 assets wired. Homepage pricing section added.
+**State as of 2026-09-30:** Site launched 2026-09-22 (`ae071d1`). Three pages live at the repo root plus Spanish copies under `es/`, all indexable. Holding page retired. Legal pages live but still drafts. SMS terms and privacy pages live for Spruce carrier registration.
 
 ```bash
 git log --oneline -4 && git status --short
+git diff --cached --stat                                                      # expect empty: other sessions edit this tree
 git fetch -q origin && git rev-list --left-right --count origin/main...main  # expect 0 0
-curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com          # expect 200
-curl -s -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com/preview/ # expect 200
+for p in "" about.html surgeons.html es/ es/about.html es/surgeons.html; do
+  curl -s -o /dev/null -w "%{http_code} /$p\n" "https://orthoflowrecovery.com/$p"  # expect 200 each
+done
+gh api repos/SebbyServices/OrthoFlowRecovery/pages/builds/latest --jq '{status,commit}'  # expect built, HEAD
 ```
 
 | Area | State |
 |---|---|
 | Agreement | Signed 2026-09-04. Paid. Commercial terms in `PRIVATE_NOTES.local.md` only |
-| Repo root `index.html` | Holding page only. NOT the homepage. See Architecture |
-| `preview/` | Three-page build, all `[placeholder]` copy, all `noindex` |
-| Fonts / colors | Client design direction proposed but NOT confirmed in writing. Do not touch `styles.css` |
-| Enquiry forms | Wired: `mjyvjwlq` reserve, `xaeyaokw` practice. Not end-to-end tested |
-| Business hours | Mon-Fri 8am-6pm confirmed. Sat/Sun not supplied |
-| DNS / Pages | Fully live. A/AAAA resolve, HTTPS cert covers apex and `www` |
+| Live pages | `index.html`, `about.html`, `surgeons.html` and the same three in `es/`. Edit EN and ES together |
+| `preview/` | Stale pre-launch copy, still tracked and served at `/preview/` (`noindex`). Not maintained: do not edit it or treat it as the site |
+| `draft-preview/` | Gitignored, local-only draft layouts. Not the site |
+| Copy | Approved by John: docx 2026-09-14, redlines 2026-09-16/18/22. Approval date sits in an HTML comment above each block |
+| Patient reviews | Three on the homepage from the 2026-09-18 survey. Name use is limited to what each patient consented to (see the HTML comment) |
+| Legal pages | `privacy.html`, `terms.html` live with "DRAFT, NOT YET IN EFFECT" banners, placeholders, counsel notes, and a leftover `noindex`. Finalizing them is John's counsel's call |
+| SMS pages | `sms-terms.html`, `sms-privacy.html` live 2026-09-30 in John's wording, linked from every footer. Keep both live |
+| Fonts / colors | Playfair Display + Inter, navy tokens. Client's proposed Poppins + Source Sans 3 NOT confirmed in writing. Do not swap fonts or color tokens in `styles.css`; layout rules are fine to change |
+| Asset versions | `styles.css?v=20260930d`, `main.js?v=20260930` on all 11 pages. Bump on every CSS/JS change |
+| Enquiry forms | Wired in EN and ES: `mjyvjwlq` reserve, `xaeyaokw` practice. Reserve form gained name split, ZIP, contact preference, and required SMS consent 2026-09-30 (John's approval verbal only). End-to-end delivery to John not confirmed on record |
+| Surgeons compliance note | Commented out in `surgeons.html` pending healthcare attorney review |
+| Business hours | Mon-Fri 8am-6pm, Sat 9am-4pm, Sun by appointment (filled 2026-09-14) |
+| DNS / Pages | Fully live. A/AAAA resolve, HTTPS cert covers apex and `www`. Build type `legacy`. An old GoDaddy builder site still answers for the domain: see DNS and Deploy |
 
-**Open decisions (ask Sebby, do not guess):** font/color confirmation, Sat/Sun hours, sibling client positioning.
+**Open decisions (ask Sebby, do not guess):** font/color confirmation, sibling client positioning, final legal page wording (counsel), written confirmation of the 2026-09-30 reserve-form fields, John's review of the Spanish SMS consent wording.
 
 **Client privacy:** contact details, commercial terms, and private client documents go in `PRIVATE_NOTES.local.md` (gitignored) only. Client address never published; use service area. No testimonials or patient videos without per-patient written authorization. Neither form may collect PHI.
 
@@ -56,42 +66,43 @@ Run all three sweeps before every commit touching markup.
 ```bash
 python3 -m http.server 8000
 
-# 1. Shared-chrome drift (preview/ only; holding page has no nav/footer).
-#    Expect exactly THREE diffs per subpage: the intended #reserve asymmetry.
-cd preview
-for block in nav footer; do
+# 1. Shared-chrome drift across the six marketing pages (EN at root, ES in es/).
+#    Expect exactly FIVE diffs per subpage, all intended: #reserve in nav, mobile
+#    menu, and footer, plus the language-switcher link in nav and mobile menu.
+#    One-line HTML comments are filtered (es/index.html's footer has extras).
+chrome() { sed -n "$1" "$2" | command grep -v '^[[:space:]]*<!--.*-->[[:space:]]*$'; }
+for dir in . es; do
   for page in about surgeons; do
-    diff <(sed -n "/<$block>/,/<\/$block>/p" index.html) <(sed -n "/<$block>/,/<\/$block>/p" $page.html)
+    for range in '/<nav>/,/<\/nav>/p' '/<footer>/,/<\/footer>/p' '/<div class="mobile-menu">/,/<main/p'; do
+      diff <(chrome "$range" $dir/index.html) <(chrome "$range" $dir/$page.html)
+    done
   done
 done
-for page in about surgeons; do
-  diff <(sed -n '/<div class="mobile-menu">/,/<main/p' index.html) <(sed -n '/<div class="mobile-menu">/,/<main/p' $page.html)
-done
-cd ..
 
 # 2. Em dash sweep. Must print nothing. Use `command grep` (plain grep is a ugrep
 #    wrapper respecting .gitignore, which silently skips PRIVATE_NOTES.local.md).
 LC_ALL=C command grep -rn $'\xe2\x80\x94' --include='*.html' --include='*.css' --include='*.js' --include='*.md' .
 
-# 3. Pre-launch readiness (preview/ only). Must be zero before launch.
-grep -rc '\[.*placeholder\|TODO\|REPLACE_WITH' preview/index.html preview/about.html preview/surgeons.html styles.css
+# 3. Placeholder sweep. Live marketing pages and styles.css must all be zero.
+#    privacy.html and terms.html show 1 each until counsel finalizes them.
+command grep -c '\[.*placeholder\|TODO\|REPLACE_WITH\|\[Insert' index.html about.html surgeons.html es/*.html styles.css privacy.html terms.html
 ```
 
 ```bash
-# Verify #reserve links (sweep 1 catches only 2 of 4 per subpage)
-grep -n 'href="index.html#reserve"' preview/about.html preview/surgeons.html  # expect 4 per file
-grep -n 'href="#reserve"' preview/index.html                                   # expect 4
+# Verify #reserve links (sweep 1 misses the bottom CTA band, which sits in <main>)
+command grep -c 'href="index.html#reserve"' about.html surgeons.html es/about.html es/surgeons.html  # expect 4 each
+command grep -c 'href="#reserve"' index.html es/index.html                                            # expect 4 each
 ```
 
 ---
 
 ## Architecture
 
-Three flat pages under `preview/` sharing root `styles.css` and `main.js` (via `../`), plus a standalone holding page at the repo root. No templating, no build step.
+Three flat marketing pages at the repo root (`index.html`, `about.html`, `surgeons.html`) with Spanish copies in `es/` that reach shared files via `../`. Supporting pages at the root, English only: `privacy.html`, `terms.html`, `sms-terms.html`, `sms-privacy.html`, `404.html`. One `styles.css`, one `main.js`. No templating, no build step.
 
-**Two site areas:** Root `index.html` is the holding page (logo, phone, service area, no nav/footer, not `noindex`). The marketing site is `preview/index.html`, `preview/about.html`, `preview/surgeons.html` (all `noindex`). At launch, promote `preview/`'s three files to repo root and retire the holding page in one pass.
+**Site layout:** The site went live 2026-09-22 when `preview/` was promoted to the root and the holding page retired (`ae071d1`). `preview/` is still tracked and served at `/preview/` with `noindex`, but it is frozen pre-launch markup: never edit it as if it were the site. Each marketing page's language switcher links to its sibling, so add, rename, or remove marketing pages in EN/ES pairs. ES pages link supporting pages as `../privacy.html` and so on; a bare `privacy.html` from `es/` 404s.
 
-**Page 3 (`surgeons.html`):** Audience is surgeons, practice managers, coordinators, ASC/discharge staff. Compliance-note section requires a healthcare attorney's review before any wording goes in. No referral-incentive language anywhere on this page.
+**Page 3 (`surgeons.html`):** Audience is surgeons, practice managers, coordinators, ASC/discharge staff. Compliance-note section is commented out in EN and ES until a healthcare attorney approves wording. No referral-incentive language anywhere on this page.
 
 **Enquiry forms (Section 5.3 of signed agreement):**
 - Reserve form fields: name, phone, email, timing-range `<select>` only ("within 2 weeks", "2 to 6 weeks", "6 or more weeks", "not sure yet"). Plus one SMS consent checkbox (`sms_consent`), added 2026-09-30 at John's written request for Spruce Health carrier registration. Unchecked by default; made required to submit the same day (Sebby's decision), and John's closing sentence "Consent is not a condition of purchase." was removed from the EN and ES labels to match. The matching sentence in `sms-terms.html` was removed too. It links to `sms-terms.html` and `sms-privacy.html`; keep both pages live and the wording verbatim.
@@ -102,7 +113,7 @@ Three flat pages under `preview/` sharing root `styles.css` and `main.js` (via `
 - Both show `.form-notice`: "Please do not include medical information in this form. We will contact you to discuss any specifics by phone."
 - Formspree: `mjyvjwlq` reserve, `xaeyaokw` practice (John's own account). First submission may require John to confirm a Formspree activation email.
 
-**Nav, mobile menu, footer** are copy-pasted across all three `preview/` pages. Changes must be made three times. The only intended divergence: subpages use `index.html#reserve` in four places (nav CTA, mobile-menu CTA, bottom CTA band, footer link); homepage uses `#reserve`. Sweep 1 catches only two of these; use the grep above for the other two.
+**Nav, mobile menu, footer** are copy-pasted into all 11 pages (six marketing, five supporting). A chrome change means 11 edits, with the ES strings translated. `privacy.html`, `terms.html`, and `404.html` still carry pre-launch chrome (`ortho-flow-wordmark.png`, `ortho-flow-logo-reverse.png`). Intended divergence on the marketing pages: subpages use `index.html#reserve` in four places (nav CTA, mobile-menu CTA, bottom CTA band, footer link) where the homepage uses `#reserve`, and each language switcher points at its own sibling. Sweep 1 catches all but the CTA band; the `#reserve` grep catches all four.
 
 `.mobile-menu` is outside `<nav>` on purpose. A positioned ancestor traps the fixed overlay.
 
@@ -139,6 +150,13 @@ dig +short orthoflowrecovery.com TXT         # must show SPF and onmicrosoft.com
 dig +short _dmarc.orthoflowrecovery.com TXT  # must show p=quarantine
 ```
 
+**Leftover GoDaddy Website Builder site (found 2026-09-30, not yet fixed).** A GoDaddy builder site for this domain was published 2026-05-05 (`orthoflowrecovery.godaddysites.com`). GoDaddy's builder servers (`13.248.243.5`, `76.223.105.230`) still answer for `orthoflowrecovery.com` with a valid GoDaddy cert (expires 2026-11-19). Any visitor whose DNS lookup reaches those IPs sees the old GoDaddy site with no browser warning; its `/about.html` is a GoDaddy "Page Not Found" (John hit exactly this on 2026-09-30). Browsers that visited before the 2026-09-05 cutover may also still hold its service worker (`/sw.js`), which serves a cached GoDaddy homepage at `/`. Fix: disconnect the domain from that builder site in John's GoDaddy account, then immediately re-run the DNS checks above plus `dig +short orthoflowrecovery.com A` (expect only the four GitHub IPs). GoDaddy can rewrite the apex A records when a builder site is disconnected or republished.
+
+```bash
+# 200 here means GoDaddy is still serving the domain; expect a connection failure or non-200 once fixed
+curl -sk --resolve orthoflowrecovery.com:443:13.248.243.5 -o /dev/null -w '%{http_code}\n' https://orthoflowrecovery.com/
+```
+
 ---
 
 ## Behavioral Rules
@@ -157,21 +175,21 @@ dig +short _dmarc.orthoflowrecovery.com TXT  # must show p=quarantine
 
 ---
 
-## Open Items Before Launch
+## Open Items
 
-- [ ] Promote `preview/` three files to repo root; retire holding page
+Launch items closed by 2026-09-22 (promotion, copy sign-off, pricing, hours, hero image, social icons, `noindex` removal) are in git history.
+
+- [ ] **Disconnect the domain from the GoDaddy builder site** (see DNS and Deploy). Needs John's GoDaddy login
 - [ ] Font and color confirmation from client in writing
-- [ ] Healthcare attorney review of page 3 compliance line
-- [ ] Client sign-off on `CONTENT_DECK.md` copy, then move into HTML
-- [ ] Pricing figures for homepage pricing section (in writing)
-- [ ] Resolve every `[FACT NEEDED]` in the content deck
-- [ ] Sat/Sun business hours
-- [ ] End-to-end test both Formspree forms (John may need to confirm first submission)
-- [ ] Hero photo or video
-- [ ] Social handles, then restore footer social icons
-- [ ] Confirm NICE logo use, photography, and claims requirements
+- [ ] Healthcare attorney review of the surgeons-page compliance line (EN and ES)
+- [ ] Counsel finalizes `privacy.html` and `terms.html`; then remove their DRAFT banners, placeholders, counsel notes, and `noindex`
+- [ ] End-to-end test both Formspree forms in EN and ES (John may need to confirm first submission)
+- [ ] Written confirmation from John of the 2026-09-30 reserve-form fields
+- [ ] John reviews the Spanish SMS consent wording
+- [ ] Bring `privacy.html`, `terms.html`, `404.html` chrome up to date (current logos, nav actions)
+- [ ] Resolve the remaining `[FACT NEEDED]` tags in `CONTENT_DECK.md` (11 as of 2026-09-30)
+- [ ] Confirm NICE logo use and photography requirements (claims rules documented in `CONTENT_DECK.md` 2026-09-12)
 - [ ] Official reversed logo from client's designer
-- [ ] **Remove `noindex, nofollow` from all three `preview/` pages at launch**
 
 ---
 
@@ -187,10 +205,11 @@ Never save a contract, invoice, or proposal into this folder. `.gitignore` exclu
 
 | File | Use |
 |---|---|
-| `assets/ortho-flow-wordmark.png` | nav, mobile menu |
-| `assets/ortho-flow-logo.png` | og:image, light backgrounds |
-| `assets/ortho-flow-logo-reverse.png` | footer |
+| `assets/ortho-flow-wordmark-light.png` | nav, mobile menu |
+| `assets/ortho-flow-logo.png` | og:image |
+| `assets/ortho-flow-logo-reverse-v3.png` | footer (tagline removed per John's redline, `0e7929a`) |
+| `assets/ortho-flow-wordmark.png`, `assets/ortho-flow-logo-reverse.png` | pre-launch versions, still on `privacy.html`, `terms.html`, `404.html` only |
 | `assets/ortho-flow-icon.png`, `favicon.png` | favicon, square uses |
 | `assets/ortho-flow-logo-master.png` | source of truth (excluded from live site) |
 
-All five are client-owned per the signed agreement. Master is 960x640 raster: fine for web, not print. The reversed logo was recolored here; ask the client's designer for an official version before launch.
+All logo files are client-owned per the signed agreement. Master is 960x640 raster: fine for web, not print. The reversed logo was recolored here; ask the client's designer for an official version.
