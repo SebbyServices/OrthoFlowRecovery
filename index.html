@@ -26,7 +26,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260930" />
   </head>
 
   <body>
@@ -211,9 +211,10 @@
       </section>
 
       <!-- Reserve form. Field set is a signed contractual constraint, not a style
-           choice: name, phone, email, and a non-clinical timing range only. No
-           procedure date, no free-text field. See CLAUDE.md Architecture, "Enquiry
-           forms: two now, both field-restricted." -->
+           choice: contact details, ZIP, a non-clinical timing range, and contact
+           preference only. No physician, body part, procedure date, insurance or
+           coverage program, or free-text field: Section 5.3 bans them and Formspree
+           has no BAA. See CLAUDE.md Architecture, "Enquiry forms". -->
       <section id="reserve" class="bg-cream-alt">
         <div class="container">
           <!-- Reserve form title and instruction approved by John Pierce 2026-09-14. -->
@@ -225,27 +226,29 @@
           <!-- Patient rental form. Endpoint supplied by John, 2026-09-09, in his own
                Formspree account per Section 5.3, not the Elite Care Recovery form. -->
           <form action="https://formspree.io/f/mjyvjwlq" method="POST">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" autocomplete="given-name" required />
+              </div>
+              <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" autocomplete="family-name" required />
+              </div>
             </div>
             <div class="form-group">
               <label for="phone">Phone</label>
               <input type="tel" id="phone" name="phone" required />
             </div>
-            <!-- SMS consent. Added at John Pierce's written request (received 2026-09-30)
-                 for Spruce Health carrier registration. Must stay optional and unchecked
-                 by default: consent cannot be a condition of purchase. Not PHI. -->
-            <div class="form-group form-consent">
-              <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" />
-              <div>
-                <label for="sms-consent">I agree to receive service-related text messages from Ortho Flow Recovery LLC regarding scheduling, delivery, rentals, follow-ups, billing, extensions, and pickup. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for assistance. Consent is not a condition of purchase.</label>
-                <p class="form-consent-links">Read our <a href="sms-terms.html">SMS Terms</a> and <a href="sms-privacy.html">SMS Privacy Policy</a>.</p>
-              </div>
-            </div>
             <div class="form-group">
               <label for="email">Email</label>
               <input type="email" id="email" name="email" required />
+            </div>
+            <!-- ZIP lets John check the Miami-Dade/Broward service area before calling.
+                 No State field: every serviceable ZIP is in Florida. -->
+            <div class="form-group">
+              <label for="zip">ZIP Code</label>
+              <input type="text" id="zip" name="zip" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" title="5-digit ZIP code" required />
             </div>
             <div class="form-group">
               <label for="timing">When Do You Need Equipment?</label>
@@ -256,6 +259,33 @@
                 <option value="6-or-more-weeks">6 or more weeks</option>
                 <option value="not-sure-yet">Not sure yet</option>
               </select>
+            </div>
+            <!-- Radios, not checkboxes, so `required` works natively with no JS. Choosing
+                 "Text" is not SMS consent: John texts only if sms_consent is checked. -->
+            <fieldset class="form-group form-choices">
+              <legend>How Would You Like to Be Contacted?</legend>
+              <div class="form-choice">
+                <input type="radio" id="contact-phone" name="contact_preference" value="phone" required />
+                <label for="contact-phone">Phone call</label>
+              </div>
+              <div class="form-choice">
+                <input type="radio" id="contact-text" name="contact_preference" value="text" />
+                <label for="contact-text">Text message</label>
+              </div>
+              <div class="form-choice">
+                <input type="radio" id="contact-email" name="contact_preference" value="email" />
+                <label for="contact-email">Email</label>
+              </div>
+            </fieldset>
+            <!-- SMS consent. Added at John Pierce's written request (received 2026-09-30)
+                 for Spruce Health carrier registration. Must stay optional and unchecked
+                 by default: consent cannot be a condition of purchase. Not PHI. -->
+            <div class="form-group form-consent">
+              <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" />
+              <div>
+                <label for="sms-consent">I agree to receive service-related text messages from Ortho Flow Recovery LLC regarding scheduling, delivery, rentals, follow-ups, billing, extensions, and pickup. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for assistance. Consent is not a condition of purchase.</label>
+                <p class="form-consent-links">Read our <a href="sms-terms.html">SMS Terms</a> and <a href="sms-privacy.html">SMS Privacy Policy</a>.</p>
+              </div>
             </div>
             <button type="submit" class="btn btn-primary">Request Equipment</button>
             <p class="form-status" role="status" aria-live="polite"></p>
@@ -338,6 +368,6 @@
       </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js?v=20260930"></script>
   </body>
 </html>

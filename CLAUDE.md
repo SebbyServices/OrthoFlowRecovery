@@ -108,6 +108,9 @@ Three flat pages under `preview/` sharing root `styles.css` and `main.js` (via `
 1. Fade-in CSS is injected at runtime (`main.js` appends a `<style>` with `.fade-out`/`.fade-in`/`@keyframes fadeInUp`). Not in `styles.css`. A section that never intersects stays invisible.
 2. Form handler binds `document.querySelector('form')` (first form only). Safe because each page has exactly one form. Would break if a second form landed on the same page.
 3. `setActiveNavLink()` only touches `.nav-links a`. Mobile menu links never get `.active`.
+4. Form status and button text come from `formText`, keyed on `<html lang>`. Change the English and Spanish strings together.
+
+**Asset versioning:** every page links `styles.css?v=YYYYMMDD` and `main.js?v=YYYYMMDD` (11 pages, `../` on `es/`). When either file changes, bump the token on all of them in the same commit. Otherwise returning visitors get the new HTML with the old CSS/JS for up to 10 minutes (GitHub Pages sends `max-age=600`). That is what broke the SMS checkbox styling on 2026-09-30.
 
 **Color tokens:** `--color-accent` / `--color-accent-dark` (not `--color-blue`). Section backgrounds are class-driven (`bg-cream`, `bg-cream-alt`, `bg-charcoal`, `bg-accent`). Do not change tokens on the design-direction document alone. Sky blue `#5DA0E2` is decorative only (fails WCAG AA): never text or buttons.
 

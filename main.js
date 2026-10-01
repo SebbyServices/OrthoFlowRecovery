@@ -80,6 +80,25 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
 /* 4. FORMSPREE SUBMISSION UX: Show "Sending..." state and success message */
 const form = document.querySelector('form');
 
+/* Response-time wording confirmed by John Pierce 2026-09-14: same day or next
+   business day, by call or text. Spanish pages get the translated set. */
+const formText =
+  document.documentElement.lang === 'es'
+    ? {
+        sending: 'Enviando…',
+        sent: '✓ ¡Enviado!',
+        success:
+          'Recibimos su solicitud. Respondemos el mismo día o, a más tardar, el siguiente día hábil, por llamada o mensaje de texto.',
+        error: 'Algo salió mal. Inténtelo de nuevo o llámenos.',
+      }
+    : {
+        sending: 'Sending…',
+        sent: '✓ Sent!',
+        success:
+          'We received your request. We respond the same day, or the next business day at the latest, by call or text.',
+        error: 'Something went wrong. Please try again or call us.',
+      };
+
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -91,7 +110,7 @@ if (form) {
     /* Show "Sending..." state */
     submitBtn.disabled = true;
     submitBtn.classList.add('sending');
-    submitBtn.textContent = 'Sending…';
+    submitBtn.textContent = formText.sending;
 
     /* Hide any previous status message */
     if (formStatus) {
@@ -112,13 +131,10 @@ if (form) {
         /* Success */
         submitBtn.disabled = false;
         submitBtn.classList.remove('sending');
-        submitBtn.textContent = '✓ Sent!';
+        submitBtn.textContent = formText.sent;
 
         if (formStatus) {
-          /* Response-time confirmed by John Pierce 2026-09-14:
-             same day or next business day, by call or text. */
-          formStatus.textContent =
-            'We received your request. We respond the same day, or the next business day at the latest, by call or text.';
+          formStatus.textContent = formText.success;
           formStatus.classList.add('show', 'success');
         }
 
@@ -137,8 +153,7 @@ if (form) {
       submitBtn.textContent = originalText;
 
       if (formStatus) {
-        formStatus.textContent =
-          'Something went wrong. Please try again or call us.';
+        formStatus.textContent = formText.error;
         formStatus.classList.add('show', 'error');
       }
 

@@ -1071,10 +1071,25 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(30, 107, 255, 0.1);
 }
 
-input:invalid,
-select:invalid,
-textarea:invalid {
+/* :user-invalid waits until the visitor has touched the field or tried to submit,
+   so an untouched form doesn't open with every required field outlined in red. */
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
   border-color: #d32f2f;
+}
+
+/* Safari ignores padding on native selects, which left the timing picker shorter
+   than the text fields. Drawing our own chevron lets the padding apply. */
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%231A1A1A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.75rem auto;
+  cursor: pointer;
 }
 
 input[type='text'],
