@@ -976,15 +976,95 @@ button,
   color: var(--color-gold);
 }
 
-/* Core values grid: one cell per value, count set by CONTENT_DECK.md */
-.values-grid {
+/* ============================================================================
+   About page
+   ============================================================================ */
+
+/* Story opens the page: heading and lead span the top, then photo beside the
+   rest of the story. Photo comes first in the DOM so on phones it breaks up the
+   text right after the lead instead of trailing five paragraphs. */
+.about-intro {
+  max-width: 48rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.about-lead {
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--color-charcoal-soft);
+}
+
+.about-story {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(2rem, 5vw, 3rem);
-  margin-top: 3rem;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+@media (min-width: 1024px) {
+  .about-story {
+    grid-template-columns: 5fr 6fr;
+    align-items: center;
+  }
+}
+
+.about-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* The turn in the story, set apart from the paragraphs around it. */
+.about-callout {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-accent);
+  border-left: 3px solid var(--color-accent-light);
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+  text-wrap: balance;
+}
+
+/* Vision and mission: one section, side by side from tablet up. The label is the
+   h2 so the outline reads "Our Vision", not a 25-word sentence. */
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 5vw, 4rem);
 }
 
 @media (min-width: 768px) {
+  .vm-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.vm-item {
+  border-top: 2px solid var(--color-accent-light);
+  padding-top: 1.75rem;
+}
+
+.vm-statement {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-charcoal);
+}
+
+/* Core values on charcoal: open columns with a short gold rule instead of cream
+   boxes, so they don't repeat the card grid in the section above. */
+.values-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 4vw, 3rem);
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 640px) {
   .values-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -996,29 +1076,24 @@ button,
   }
 }
 
-.value-card {
-  text-align: center;
-  padding: 2rem 1.5rem;
-}
-
-.value-letter {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--color-gold);
-  margin-bottom: 1rem;
+.value-card::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin-bottom: 1.5rem;
 }
 
 .value-card h3 {
   color: white;
   margin-bottom: 0.75rem;
-  font-size: 1.25rem;
+  font-size: 1.375rem;
 }
 
+/* 0.82 white on charcoal is about 12:1, comfortably AA. */
 .value-card p {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* ============================================================================

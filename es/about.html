@@ -30,7 +30,7 @@
     />
 
     <!-- Styles -->
-    <link rel="stylesheet" href="../styles.css?v=20260930c" />
+    <link rel="stylesheet" href="../styles.css?v=20260930d" />
   </head>
 
   <body>
@@ -87,40 +87,31 @@
     </div>
 
     <main id="main">
-      <!-- Vision and mission. Approved by John Pierce 2026-09-14 via docx. -->
-      <section class="bg-cream">
-        <div class="container">
-          <div class="eyebrow">Nuestra Visión</div>
-          <h2>Mejorar los resultados de los pacientes llevando apoyo integral, soluciones modernas de manejo del dolor y un estándar de servicio superior al hogar.</h2>
-        </div>
-      </section>
-
-      <section class="bg-cream-alt">
-        <div class="container">
-          <div class="eyebrow">Nuestra Misión</div>
-          <h2>Mejorar el estándar de atención ortopédica brindando a los pacientes acceso a terapias modernas, servicio confiable y orientación personalizada durante la recuperación en casa.</h2>
-        </div>
-      </section>
-
+      <!-- Section order: story, why us, vision and mission, values, CTA. The h1 leads
+           the page; vision and mission share one section next to the values. -->
       <!-- About Us story. John's own words, supplied 2026-09-08, see CONTENT_DECK.md. -->
       <section class="bg-cream">
         <div class="container">
-          <div class="split-50-50">
-            <div>
-              <div class="eyebrow">Quiénes Somos</div>
-              <h1>Sobre Ortho Flow Recovery</h1>
-              <p>OrthoFlow fue fundada al ver lo difícil que pueden ser los primeros días y semanas después de una cirugía ortopédica, tanto para los pacientes como para los médicos que los atienden.</p>
-              <p>Los pacientes con frecuencia salen de la cirugía enfrentando dolor, hinchazón, movilidad limitada e incertidumbre sobre lo que viene. El hielo tradicional puede ser inconveniente e inconsistente, mientras que adquirir equipo avanzado de recuperación puede resultar poco práctico. Incluso cuando existe mejor tecnología disponible, coordinar el equipo, aprender a usarlo y gestionar su devolución puede convertirse en otra carga durante un momento ya exigente.</p>
-              <p>También vimos el desafío desde la perspectiva del consultorio. Los cirujanos y su personal quieren que los pacientes se sientan apoyados después de salir, pero no siempre cuentan con el tiempo o los recursos para coordinar entregas de equipo, responder cada pregunta sobre el producto o gestionar la logística de alquiler.</p>
-              <p>OrthoFlow fue creada para ayudar a cerrar esa brecha.</p>
-              <p>Entregamos equipo avanzado de frío y compresión directamente al hogar del paciente, lo instalamos, explicamos cómo funciona y permanecemos disponibles durante todo el alquiler. Cuando el paciente termina, coordinamos la recogida también. Nuestro objetivo es que toda la experiencia sea sencilla para el paciente y requiera la menor intervención posible del consultorio de referencia.</p>
-            </div>
+          <div class="about-intro">
+            <div class="eyebrow">Quiénes Somos</div>
+            <h1>Sobre Ortho Flow Recovery</h1>
+            <p class="about-lead">OrthoFlow fue fundada al ver lo difícil que pueden ser los primeros días y semanas después de una cirugía ortopédica, tanto para los pacientes como para los médicos que los atienden.</p>
+          </div>
+          <div class="about-story">
             <img
               src="../assets/staff-photo-v1.webp"
               alt="Especialista de Ortho Flow Recovery"
-              style="width:100%;border-radius:8px;"
+              class="about-photo"
+              width="619"
+              height="888"
               loading="lazy"
             />
+            <div>
+              <p>Los pacientes con frecuencia salen de la cirugía enfrentando dolor, hinchazón, movilidad limitada e incertidumbre sobre lo que viene. El hielo tradicional puede ser inconveniente e inconsistente, mientras que adquirir equipo avanzado de recuperación puede resultar poco práctico. Incluso cuando existe mejor tecnología disponible, coordinar el equipo, aprender a usarlo y gestionar su devolución puede convertirse en otra carga durante un momento ya exigente.</p>
+              <p>También vimos el desafío desde la perspectiva del consultorio. Los cirujanos y su personal quieren que los pacientes se sientan apoyados después de salir, pero no siempre cuentan con el tiempo o los recursos para coordinar entregas de equipo, responder cada pregunta sobre el producto o gestionar la logística de alquiler.</p>
+              <p class="about-callout">OrthoFlow fue creada para ayudar a cerrar esa brecha.</p>
+              <p>Entregamos equipo avanzado de frío y compresión directamente al hogar del paciente, lo instalamos, explicamos cómo funciona y permanecemos disponibles durante todo el alquiler. Cuando el paciente termina, coordinamos la recogida también. Nuestro objetivo es que toda la experiencia sea sencilla para el paciente y requiera la menor intervención posible del consultorio de referencia.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -147,16 +138,32 @@
         </div>
       </section>
 
+      <!-- Vision and mission. Approved by John Pierce 2026-09-14 via docx. -->
+      <section class="bg-cream">
+        <div class="container">
+          <div class="vm-grid">
+            <div class="vm-item">
+              <h2 class="eyebrow">Nuestra Visión</h2>
+              <p class="vm-statement">Mejorar los resultados de los pacientes llevando apoyo integral, soluciones modernas de manejo del dolor y un estándar de servicio superior al hogar.</p>
+            </div>
+            <div class="vm-item">
+              <h2 class="eyebrow">Nuestra Misión</h2>
+              <p class="vm-statement">Mejorar el estándar de atención ortopédica brindando a los pacientes acceso a terapias modernas, servicio confiable y orientación personalizada durante la recuperación en casa.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Core values. Approved by John Pierce 2026-09-14 via docx. -->
       <section class="bg-charcoal">
         <div class="container">
           <div class="eyebrow">Valores</div>
           <h2>En qué creemos</h2>
-          <div class="card-grid">
-            <div class="card"><h3>Ser confiables.</h3><p>Cumplimos lo que decimos y hacemos cada entrega, instalación y recogida lo más puntual posible.</p></div>
-            <div class="card"><h3>Ser receptivos.</h3><p>Los pacientes y los consultorios deben poder comunicarse con una persona real cuando necesitan apoyo.</p></div>
-            <div class="card"><h3>Hacerlo simple.</h3><p>Nos tomamos el tiempo para explicar el equipo con claridad y asegurarnos de que cada paciente se sienta seguro al usarlo en casa.</p></div>
-            <div class="card"><h3>Mantenernos involucrados.</h3><p>Nuestro servicio no termina en la entrega. Permanecemos conectados durante el proceso de recuperación y estamos disponibles cuando surgen preguntas.</p></div>
+          <div class="values-grid">
+            <div class="value-card"><h3>Ser confiables.</h3><p>Cumplimos lo que decimos y hacemos cada entrega, instalación y recogida lo más puntual posible.</p></div>
+            <div class="value-card"><h3>Ser receptivos.</h3><p>Los pacientes y los consultorios deben poder comunicarse con una persona real cuando necesitan apoyo.</p></div>
+            <div class="value-card"><h3>Hacerlo simple.</h3><p>Nos tomamos el tiempo para explicar el equipo con claridad y asegurarnos de que cada paciente se sienta seguro al usarlo en casa.</p></div>
+            <div class="value-card"><h3>Mantenernos involucrados.</h3><p>Nuestro servicio no termina en la entrega. Permanecemos conectados durante el proceso de recuperación y estamos disponibles cuando surgen preguntas.</p></div>
           </div>
         </div>
       </section>
