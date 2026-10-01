@@ -264,11 +264,12 @@
             <!-- SMS consent. Spanish translation of the wording John Pierce supplied in
                  writing (received 2026-09-30); pending John's review. STOP and HELP stay
                  in English because those are the keywords the carrier processes. Must
-                 stay optional and unchecked by default. Not PHI. -->
+                 stay unchecked by default. Required to submit since 2026-09-30, with the
+                 closing condition-of-purchase sentence removed; see the English form. Not PHI. -->
             <div class="form-group form-consent">
-              <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" />
+              <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" required />
               <div>
-                <label for="sms-consent">Acepto recibir mensajes de texto relacionados con el servicio de Ortho Flow Recovery LLC sobre programación, entrega, alquileres, seguimientos, facturación, extensiones y recogida. La frecuencia de los mensajes varía. Pueden aplicarse tarifas de mensajes y datos. Responda STOP para cancelar y HELP para obtener ayuda. El consentimiento no es una condición de compra.</label>
+                <label for="sms-consent">Acepto recibir mensajes de texto relacionados con el servicio de Ortho Flow Recovery LLC sobre programación, entrega, alquileres, seguimientos, facturación, extensiones y recogida. La frecuencia de los mensajes varía. Pueden aplicarse tarifas de mensajes y datos. Responda STOP para cancelar y HELP para obtener ayuda.</label>
                 <p class="form-consent-links">Consulte nuestros <a href="../sms-terms.html">Términos de SMS</a> y nuestra <a href="../sms-privacy.html">Política de Privacidad de SMS</a> (en inglés).</p>
               </div>
             </div>

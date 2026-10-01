@@ -260,8 +260,7 @@
                 <option value="not-sure-yet">Not sure yet</option>
               </select>
             </div>
-            <!-- Radios, not checkboxes, so `required` works natively with no JS. Choosing
-                 "Text" is not SMS consent: John texts only if sms_consent is checked. -->
+            <!-- Radios, not checkboxes, so `required` works natively with no JS. -->
             <fieldset class="form-group form-choices">
               <legend>How Would You Like to Be Contacted?</legend>
               <div class="form-choice">
@@ -278,12 +277,14 @@
               </div>
             </fieldset>
             <!-- SMS consent. Added at John Pierce's written request (received 2026-09-30)
-                 for Spruce Health carrier registration. Must stay optional and unchecked
-                 by default: consent cannot be a condition of purchase. Not PHI. -->
+                 for Spruce Health carrier registration. Must stay unchecked by default.
+                 Required to submit since 2026-09-30 (Sebby's decision); John's closing
+                 sentence "Consent is not a condition of purchase." was removed then so the
+                 label doesn't contradict the form. Not PHI. -->
             <div class="form-group form-consent">
-              <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" />
+              <input type="checkbox" id="sms-consent" name="sms_consent" value="yes" required />
               <div>
-                <label for="sms-consent">I agree to receive service-related text messages from Ortho Flow Recovery LLC regarding scheduling, delivery, rentals, follow-ups, billing, extensions, and pickup. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for assistance. Consent is not a condition of purchase.</label>
+                <label for="sms-consent">I agree to receive service-related text messages from Ortho Flow Recovery LLC regarding scheduling, delivery, rentals, follow-ups, billing, extensions, and pickup. Message frequency varies. Message and data rates may apply. Reply STOP to opt out and HELP for assistance.</label>
                 <p class="form-consent-links">Read our <a href="sms-terms.html">SMS Terms</a> and <a href="sms-privacy.html">SMS Privacy Policy</a>.</p>
               </div>
             </div>
