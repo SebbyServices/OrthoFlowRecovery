@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Hand-maintained. Add or remove pages in EN/ES pairs and bump lastmod when a page changes. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://orthoflowrecovery.com/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://orthoflowrecovery.com/about.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://orthoflowrecovery.com/surgeons.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://orthoflowrecovery.com/es/</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://orthoflowrecovery.com/es/about.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://orthoflowrecovery.com/es/surgeons.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://orthoflowrecovery.com/sms-terms.html</loc><lastmod>2026-10-31</lastmod></url>
+  <url><loc>https://orthoflowrecovery.com/sms-privacy.html</loc><lastmod>2026-10-31</lastmod></url>
+</urlset>

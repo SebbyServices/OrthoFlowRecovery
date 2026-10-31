@@ -2,16 +2,19 @@
    Ortho Flow Recovery: Main JavaScript
    ============================================================================ */
 
+/* Visitors who set "reduce motion" in their OS get no fade-ins and no smooth scroll. */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 /* 1. STICKY NAV: Toggle .scrolled class after 50px scroll */
 const nav = document.querySelector('nav');
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-});
+window.addEventListener(
+  'scroll',
+  () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  },
+  { passive: true }
+);
 
 /* 2. MOBILE HAMBURGER MENU: Toggle open/close (event delegation) */
 const hamburgerBtn = document.querySelector('.hamburger');
@@ -66,12 +69,13 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
 
       /* Close mobile menu if open */
       if (mobileMenu && mobileMenu.classList.contains('open')) {
         mobileMenu.classList.remove('open');
         hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
       }
     }
   });
@@ -146,8 +150,8 @@ if (form) {
       } else {
         throw new Error('Form submission failed');
       }
-    } catch (error) {
-      /* Error */
+    } catch {
+      /* Error: the visitor sees formText.error; nothing is logged to the console. */
       submitBtn.disabled = false;
       submitBtn.classList.remove('sending');
       submitBtn.textContent = originalText;
@@ -157,7 +161,6 @@ if (form) {
         formStatus.classList.add('show', 'error');
       }
 
-      console.error('Form submission error:', error);
     }
   });
 }
@@ -178,10 +181,12 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 /* Observe all sections and cards */
-document.querySelectorAll('section, .card, .step-card').forEach((el) => {
-  el.classList.add('fade-out');
-  observer.observe(el);
-});
+if (!reduceMotion) {
+  document.querySelectorAll('section, .card, .step-card').forEach((el) => {
+    el.classList.add('fade-out');
+    observer.observe(el);
+  });
+}
 
 /* CSS for fade-in animation (defined in styles.css with class) */
 document.head.insertAdjacentHTML(

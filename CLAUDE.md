@@ -30,7 +30,9 @@ gh api repos/SebbyServices/OrthoFlowRecovery/pages/builds/latest --jq '{status,c
 | Legal pages | `privacy.html`, `terms.html` live with "DRAFT, NOT YET IN EFFECT" banners, placeholders, counsel notes, and a leftover `noindex`. Finalizing them is John's counsel's call |
 | SMS pages | `sms-terms.html`, `sms-privacy.html` live 2026-09-30 in John's wording, linked from every footer. Keep both live |
 | Fonts / colors | Playfair Display + Inter, navy tokens. Client's proposed Poppins + Source Sans 3 NOT confirmed in writing. Do not swap fonts or color tokens in `styles.css`; layout rules are fine to change |
-| Asset versions | `styles.css?v=20260930d`, `main.js?v=20260930` on all 11 pages. Bump on every CSS/JS change |
+| Asset versions | `styles.css?v=20261031`, `main.js?v=20261031` on 10 pages. `404.html` still on `20260930d`/`20260930` because it carries another session's uncommitted edits. Bump on every CSS/JS change |
+| FAQ | Homepage `#faq` (EN + ES), John's wording from his 2026-10-29 docx. Native `<details>`. A FAQPage JSON-LD block in `<head>` must match the visible text word for word |
+| SEO plumbing | Canonical + reciprocal hreflang on all six marketing pages, LocalBusiness JSON-LD on both homepages, hand-maintained `sitemap.xml` and `robots.txt` (2026-10-31). Add pages to `sitemap.xml` in EN/ES pairs |
 | Enquiry forms | Wired in EN and ES: `mjyvjwlq` reserve, `xaeyaokw` practice. Reserve form gained name split, ZIP, contact preference, and required SMS consent 2026-09-30 (John's approval verbal only). End-to-end delivery to John not confirmed on record |
 | Surgeons compliance note | Commented out in `surgeons.html` pending healthcare attorney review |
 | Business hours | Mon-Fri 8am-6pm, Sat 9am-4pm, Sun by appointment (filled 2026-09-14) |

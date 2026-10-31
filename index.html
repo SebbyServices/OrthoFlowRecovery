@@ -4,14 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ortho Flow Recovery | Post-Op Recovery Equipment | Miami</title>
-    <meta name="description" content="Ortho Flow Recovery delivers post-operative recovery equipment with white-glove service across Miami and surrounding areas." />
+    <meta name="description" content="Ortho Flow Recovery delivers post-operative recovery equipment with white-glove service across Miami-Dade and Broward counties." />
 
+    <!-- Canonical and hreflang. Every EN/ES pair must point at each other or Google
+         ignores the alternates. Homepages use the bare directory URL. -->
+    <link rel="canonical" href="https://orthoflowrecovery.com/" />
+    <link rel="alternate" hreflang="en" href="https://orthoflowrecovery.com/" />
+    <link rel="alternate" hreflang="es" href="https://orthoflowrecovery.com/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://orthoflowrecovery.com/" />
 
     <!-- Open Graph / Social Sharing -->
+    <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://orthoflowrecovery.com/" />
     <meta property="og:title" content="Ortho Flow Recovery | Post-Op Recovery Equipment | Miami" />
-    <meta property="og:description" content="Ortho Flow Recovery delivers post-operative recovery equipment with white-glove service across Miami and surrounding areas." />
+    <meta property="og:description" content="Ortho Flow Recovery delivers post-operative recovery equipment with white-glove service across Miami-Dade and Broward counties." />
     <meta property="og:image" content="https://orthoflowrecovery.com/assets/ortho-flow-logo.png" />
 
     <!-- Favicon -->
@@ -29,7 +36,116 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" /></noscript>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.css?v=20260930d" />
+    <link rel="stylesheet" href="styles.css?v=20261031" />
+    <!-- Business structured data. No street address: service-area business, and the
+         client address is never published. Hours and contact match the footer. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://orthoflowrecovery.com/#business",
+      "name": "Ortho Flow Recovery",
+      "legalName": "Ortho Flow Recovery LLC",
+      "url": "https://orthoflowrecovery.com/",
+      "logo": "https://orthoflowrecovery.com/assets/ortho-flow-logo.png",
+      "image": "https://orthoflowrecovery.com/assets/ortho-flow-logo.png",
+      "telephone": "+1-786-214-2659",
+      "email": "info@orthoflowrecovery.com",
+      "description": "Post-operative recovery equipment and hands-on service, delivered to patients at home across Miami-Dade and Broward.",
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Miami-Dade County, FL"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Broward County, FL"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "16:00"
+        }
+      ],
+      "sameAs": [
+        "https://www.instagram.com/orthoflowrecovery/",
+        "https://www.linkedin.com/company/ortho-flow-recovery-llc/"
+      ]
+    }
+    </script>
+    <!-- FAQ structured data. Must match the visible FAQ section word for word. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "en",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is NICE1 and how is it different from a traditional ice machine?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NICE1 is an iceless cold + compression therapy system. It delivers controlled cold therapy and programmable compression through procedure-specific wraps without the need to continually refill the machine with ice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to rent NICE1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ortho Flow offers simple, all-in rental options: 2 weeks for $350, 3 weeks for $500, or 4 weeks for $650. Home delivery, setup, support throughout the rental, and pickup are included."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long should I rent the machine after surgery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A two-week rental is our minimum and a common starting point for the early post-operative period. Patients who expect to use cold + compression longer can choose three- or four-week options. Recovery varies by procedure, so patients should follow any specific instructions provided by their surgical team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you deliver before surgery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We coordinate delivery around your procedure date whenever possible so the machine can be set up, demonstrated, and ready to use when you return home."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who sets the machine up and helps me if I have questions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ortho Flow handles the entire process. We deliver the NICE1, fit and explain the wrap, demonstrate the controls, and remain available throughout the rental for questions and assistance. We also coordinate pickup when you are finished."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ortho Flow provides home delivery and service throughout Miami-Dade and Broward counties."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
 
   <body>
@@ -219,6 +335,42 @@
         </div>
       </section>
 
+      <!-- FAQ. Questions and answers are John Pierce's own wording from his "Ortho Flow Website
+           Edits" docx, 2026-10-29. Pricing matches the Pricing section (all tiers shown
+           together). Native <details>, no JS. Keep the JSON-LD in <head> in sync. -->
+      <section id="faq" class="bg-cream">
+        <div class="container">
+          <div class="eyebrow">FAQ</div>
+          <h2>Frequently asked questions</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>What is NICE1 and how is it different from a traditional ice machine?</summary>
+              <p>NICE1 is an iceless cold + compression therapy system. It delivers controlled cold therapy and programmable compression through procedure-specific wraps without the need to continually refill the machine with ice.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How much does it cost to rent NICE1?</summary>
+              <p>Ortho Flow offers simple, all-in rental options: 2 weeks for $350, 3 weeks for $500, or 4 weeks for $650. Home delivery, setup, support throughout the rental, and pickup are included.</p>
+            </details>
+            <details class="faq-item">
+              <summary>How long should I rent the machine after surgery?</summary>
+              <p>A two-week rental is our minimum and a common starting point for the early post-operative period. Patients who expect to use cold + compression longer can choose three- or four-week options. Recovery varies by procedure, so patients should follow any specific instructions provided by their surgical team.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Do you deliver before surgery?</summary>
+              <p>Yes. We coordinate delivery around your procedure date whenever possible so the machine can be set up, demonstrated, and ready to use when you return home.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Who sets the machine up and helps me if I have questions?</summary>
+              <p>Ortho Flow handles the entire process. We deliver the NICE1, fit and explain the wrap, demonstrate the controls, and remain available throughout the rental for questions and assistance. We also coordinate pickup when you are finished.</p>
+            </details>
+            <details class="faq-item">
+              <summary>What areas do you serve?</summary>
+              <p>Ortho Flow provides home delivery and service throughout Miami-Dade and Broward counties.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
       <!-- Reserve form. Field set is a signed contractual constraint, not a style
            choice: contact details, ZIP, a non-clinical timing range, and contact
            preference only. No physician, body part, procedure date, insurance or
@@ -357,27 +509,20 @@
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 Ortho Flow Recovery. All rights reserved.</p>
-        <p class="footer-credit">Website by <a href="https://www.madebysebby.com" target="_blank" rel="noopener noreferrer">Made by Sebby</a></p>
-        <!-- Social handles confirmed by John Pierce 2026-09-14: Instagram @orthoflowrecovery,
-             LinkedIn "Ortho Flow Recovery LLC". Verify exact LinkedIn slug before launch. -->
-        <div class="social-icons">
-          <a href="https://www.instagram.com/orthoflowrecovery" target="_blank" rel="noopener noreferrer" aria-label="Ortho Flow Recovery on Instagram">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/company/ortho-flow-recovery-llc/" target="_blank" rel="noopener noreferrer" aria-label="Ortho Flow Recovery on LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-          </a>
+        <div class="footer-bottom-text">
+          <p>© 2026 Ortho Flow Recovery. All rights reserved.</p>
+          <p class="footer-credit">Website by <a href="https://www.madebysebby.com" target="_blank" rel="noopener noreferrer">Made by Sebby</a></p>
         </div>
+        <!-- Social links. Instagram @orthoflowrecovery and LinkedIn "Ortho Flow Recovery LLC",
+             URLs from John Pierce's website-edits docx, 2026-10-29.
+             Icon-only, right of the copyright on desktop (Sebby, 2026-10-31). -->
+        <ul class="footer-social">
+          <li><a href="https://www.instagram.com/orthoflowrecovery/" target="_blank" rel="noopener noreferrer" aria-label="Ortho Flow Recovery on Instagram (opens in a new tab)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/company/ortho-flow-recovery-llc/" target="_blank" rel="noopener noreferrer" aria-label="Ortho Flow Recovery on LinkedIn (opens in a new tab)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></li>
+        </ul>
       </div>
     </footer>
 
-    <script src="main.js?v=20260930"></script>
+    <script src="main.js?v=20261031"></script>
   </body>
 </html>

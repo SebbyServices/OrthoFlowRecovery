@@ -10,5 +10,6 @@ exclude:
   - CLAUDE.md
   - CONTENT_DECK.md
   - README.md
+  - CHANGELOG.md
   - PRIVATE_NOTES.local.md
   - assets/ortho-flow-logo-master.png
